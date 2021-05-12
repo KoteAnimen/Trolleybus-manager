@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ListStates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListStates.Designer.cs">
+      <DependentUpon>ListStates.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,10 +63,28 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>manageDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Paths.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Paths.Designer.cs">
+      <DependentUpon>Paths.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Trolleybusses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Trolleybusses.Designer.cs">
+      <DependentUpon>Trolleybusses.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ListStates.resx">
+      <DependentUpon>ListStates.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Paths.resx">
+      <DependentUpon>Paths.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -71,6 +95,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Trolleybusses.resx">
+      <DependentUpon>Trolleybusses.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="manageDataSet.xsc">
       <DependentUpon>manageDataSet.xsd</DependentUpon>
     </None>
