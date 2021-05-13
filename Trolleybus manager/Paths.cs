@@ -31,5 +31,12 @@ namespace Trolleybus_manager
             this.маршрутыTableAdapter.Fill(this.manageDataSet.Маршруты);
 
         }
+
+        private void AddNewPath_Click(object sender, EventArgs e)
+        {
+            AddPath path = new AddPath();
+            path.ShowDialog();
+            маршрутыTableAdapter.Fill(this.manageDataSet.Маршруты);
+        }
     }
 }

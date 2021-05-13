@@ -33,5 +33,45 @@ namespace Trolleybus_manager
             this.маршрутыTableAdapter.Fill(this.manageDataSet.Маршруты);
 
         }
+
+        private void Cancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void Add_Click(object sender, EventArgs e)
+        {
+            if(номерМаршрутаTextBox.Text == "")
+            {
+                MessageBox.Show("Не указан номер маршрута", "Ошибка");
+                return;
+            }
+            if (протяженностьNumericUpDown.Value == 0)
+            {
+                MessageBox.Show("Не указана протяженность пути маршрута", "Ошибка");
+                return;
+            }
+            if (времяDateTimePicker.Value == DateTime.Now)
+            {
+                MessageBox.Show("Не указано время в пути", "Ошибка");
+                return;
+            }
+            if (числоОстановокNumericUpDown.Value == 0)
+            {
+                MessageBox.Show("Не указано число остановок на пути", "Ошибка");
+                return;
+            }
+            if (числоМашинNumericUpDown.Value == 0)
+            {
+                MessageBox.Show("Не указано число машин", "Ошибка");
+                return;
+            }
+            else
+            {
+                маршрутыTableAdapter.Insert(номерМаршрутаTextBox.Text, (short)протяженностьNumericUpDown.Value, времяDateTimePicker.Value, (short)числоОстановокNumericUpDown.Value, началоДвиженияComboBox.Text, конецДвиженияComboBox.Text, (short)числоМашинNumericUpDown.Value);
+                Close();
+            }
+
+        }
     }
 }

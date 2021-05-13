@@ -41,17 +41,17 @@ namespace Trolleybus_manager
             this.маршрутыBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.маршрутыTableAdapter = new Trolleybus_manager.manageDataSetTableAdapters.МаршрутыTableAdapter();
             this.tableAdapterManager = new Trolleybus_manager.manageDataSetTableAdapters.TableAdapterManager();
+            this.справочникОстановокTableAdapter = new Trolleybus_manager.manageDataSetTableAdapters.СправочникОстановокTableAdapter();
             this.номерМаршрутаTextBox = new System.Windows.Forms.TextBox();
             this.протяженностьNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.времяDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.началоДвиженияComboBox = new System.Windows.Forms.ComboBox();
+            this.справочникОстановокBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.конецДвиженияComboBox = new System.Windows.Forms.ComboBox();
             this.числоМашинNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.числоОстановокNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.Add = new System.Windows.Forms.Button();
             this.Cancel = new System.Windows.Forms.Button();
-            this.справочникОстановокBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.справочникОстановокTableAdapter = new Trolleybus_manager.manageDataSetTableAdapters.СправочникОстановокTableAdapter();
             номерМаршрутаLabel = new System.Windows.Forms.Label();
             протяженностьLabel = new System.Windows.Forms.Label();
             времяLabel = new System.Windows.Forms.Label();
@@ -62,10 +62,73 @@ namespace Trolleybus_manager
             ((System.ComponentModel.ISupportInitialize)(this.manageDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.маршрутыBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.протяженностьNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.справочникОстановокBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.числоМашинNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.числоОстановокNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.справочникОстановокBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // номерМаршрутаLabel
+            // 
+            номерМаршрутаLabel.AutoSize = true;
+            номерМаршрутаLabel.Location = new System.Drawing.Point(30, 41);
+            номерМаршрутаLabel.Name = "номерМаршрутаLabel";
+            номерМаршрутаLabel.Size = new System.Drawing.Size(170, 24);
+            номерМаршрутаLabel.TabIndex = 1;
+            номерМаршрутаLabel.Text = "Номер Маршрута:";
+            // 
+            // протяженностьLabel
+            // 
+            протяженностьLabel.AutoSize = true;
+            протяженностьLabel.Location = new System.Drawing.Point(41, 73);
+            протяженностьLabel.Name = "протяженностьLabel";
+            протяженностьLabel.Size = new System.Drawing.Size(159, 24);
+            протяженностьLabel.TabIndex = 2;
+            протяженностьLabel.Text = "Протяженность:";
+            // 
+            // времяLabel
+            // 
+            времяLabel.AutoSize = true;
+            времяLabel.Location = new System.Drawing.Point(128, 112);
+            времяLabel.Name = "времяLabel";
+            времяLabel.Size = new System.Drawing.Size(72, 24);
+            времяLabel.TabIndex = 4;
+            времяLabel.Text = "Время:";
+            // 
+            // началоДвиженияLabel
+            // 
+            началоДвиженияLabel.AutoSize = true;
+            началоДвиженияLabel.Location = new System.Drawing.Point(23, 181);
+            началоДвиженияLabel.Name = "началоДвиженияLabel";
+            началоДвиженияLabel.Size = new System.Drawing.Size(177, 24);
+            началоДвиженияLabel.TabIndex = 8;
+            началоДвиженияLabel.Text = "Начало Движения:";
+            // 
+            // конецДвиженияLabel
+            // 
+            конецДвиженияLabel.AutoSize = true;
+            конецДвиженияLabel.Location = new System.Drawing.Point(31, 219);
+            конецДвиженияLabel.Name = "конецДвиженияLabel";
+            конецДвиженияLabel.Size = new System.Drawing.Size(169, 24);
+            конецДвиженияLabel.TabIndex = 10;
+            конецДвиженияLabel.Text = "Конец Движения:";
+            // 
+            // числоМашинLabel
+            // 
+            числоМашинLabel.AutoSize = true;
+            числоМашинLabel.Location = new System.Drawing.Point(65, 254);
+            числоМашинLabel.Name = "числоМашинLabel";
+            числоМашинLabel.Size = new System.Drawing.Size(135, 24);
+            числоМашинLabel.TabIndex = 12;
+            числоМашинLabel.Text = "Число Машин:";
+            // 
+            // числоОстановокLabel
+            // 
+            числоОстановокLabel.AutoSize = true;
+            числоОстановокLabel.Location = new System.Drawing.Point(29, 143);
+            числоОстановокLabel.Name = "числоОстановокLabel";
+            числоОстановокLabel.Size = new System.Drawing.Size(171, 24);
+            числоОстановокLabel.TabIndex = 13;
+            числоОстановокLabel.Text = "Число Остановок:";
             // 
             // manageDataSet
             // 
@@ -89,14 +152,9 @@ namespace Trolleybus_manager
             this.tableAdapterManager.СправочникОстановокTableAdapter = this.справочникОстановокTableAdapter;
             this.tableAdapterManager.ТроллейбусыTableAdapter = null;
             // 
-            // номерМаршрутаLabel
+            // справочникОстановокTableAdapter
             // 
-            номерМаршрутаLabel.AutoSize = true;
-            номерМаршрутаLabel.Location = new System.Drawing.Point(30, 41);
-            номерМаршрутаLabel.Name = "номерМаршрутаLabel";
-            номерМаршрутаLabel.Size = new System.Drawing.Size(170, 24);
-            номерМаршрутаLabel.TabIndex = 1;
-            номерМаршрутаLabel.Text = "Номер Маршрута:";
+            this.справочникОстановокTableAdapter.ClearBeforeFill = true;
             // 
             // номерМаршрутаTextBox
             // 
@@ -106,15 +164,6 @@ namespace Trolleybus_manager
             this.номерМаршрутаTextBox.Size = new System.Drawing.Size(278, 29);
             this.номерМаршрутаTextBox.TabIndex = 2;
             // 
-            // протяженностьLabel
-            // 
-            протяженностьLabel.AutoSize = true;
-            протяженностьLabel.Location = new System.Drawing.Point(41, 73);
-            протяженностьLabel.Name = "протяженностьLabel";
-            протяженностьLabel.Size = new System.Drawing.Size(159, 24);
-            протяженностьLabel.TabIndex = 2;
-            протяженностьLabel.Text = "Протяженность:";
-            // 
             // протяженностьNumericUpDown
             // 
             this.протяженностьNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.маршрутыBindingSource, "Протяженность", true));
@@ -122,15 +171,6 @@ namespace Trolleybus_manager
             this.протяженностьNumericUpDown.Name = "протяженностьNumericUpDown";
             this.протяженностьNumericUpDown.Size = new System.Drawing.Size(278, 29);
             this.протяженностьNumericUpDown.TabIndex = 3;
-            // 
-            // времяLabel
-            // 
-            времяLabel.AutoSize = true;
-            времяLabel.Location = new System.Drawing.Point(128, 112);
-            времяLabel.Name = "времяLabel";
-            времяLabel.Size = new System.Drawing.Size(72, 24);
-            времяLabel.TabIndex = 4;
-            времяLabel.Text = "Время:";
             // 
             // времяDateTimePicker
             // 
@@ -143,15 +183,6 @@ namespace Trolleybus_manager
             this.времяDateTimePicker.Size = new System.Drawing.Size(278, 29);
             this.времяDateTimePicker.TabIndex = 5;
             // 
-            // началоДвиженияLabel
-            // 
-            началоДвиженияLabel.AutoSize = true;
-            началоДвиженияLabel.Location = new System.Drawing.Point(23, 181);
-            началоДвиженияLabel.Name = "началоДвиженияLabel";
-            началоДвиженияLabel.Size = new System.Drawing.Size(177, 24);
-            началоДвиженияLabel.TabIndex = 8;
-            началоДвиженияLabel.Text = "Начало Движения:";
-            // 
             // началоДвиженияComboBox
             // 
             this.началоДвиженияComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.маршрутыBindingSource, "НачалоДвижения", true));
@@ -163,14 +194,10 @@ namespace Trolleybus_manager
             this.началоДвиженияComboBox.Size = new System.Drawing.Size(278, 32);
             this.началоДвиженияComboBox.TabIndex = 9;
             // 
-            // конецДвиженияLabel
+            // справочникОстановокBindingSource
             // 
-            конецДвиженияLabel.AutoSize = true;
-            конецДвиженияLabel.Location = new System.Drawing.Point(31, 219);
-            конецДвиженияLabel.Name = "конецДвиженияLabel";
-            конецДвиженияLabel.Size = new System.Drawing.Size(169, 24);
-            конецДвиженияLabel.TabIndex = 10;
-            конецДвиженияLabel.Text = "Конец Движения:";
+            this.справочникОстановокBindingSource.DataMember = "СправочникОстановок";
+            this.справочникОстановокBindingSource.DataSource = this.manageDataSet;
             // 
             // конецДвиженияComboBox
             // 
@@ -183,15 +210,6 @@ namespace Trolleybus_manager
             this.конецДвиженияComboBox.Size = new System.Drawing.Size(278, 32);
             this.конецДвиженияComboBox.TabIndex = 11;
             // 
-            // числоМашинLabel
-            // 
-            числоМашинLabel.AutoSize = true;
-            числоМашинLabel.Location = new System.Drawing.Point(65, 254);
-            числоМашинLabel.Name = "числоМашинLabel";
-            числоМашинLabel.Size = new System.Drawing.Size(135, 24);
-            числоМашинLabel.TabIndex = 12;
-            числоМашинLabel.Text = "Число Машин:";
-            // 
             // числоМашинNumericUpDown
             // 
             this.числоМашинNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.маршрутыBindingSource, "ЧислоМашин", true));
@@ -199,15 +217,6 @@ namespace Trolleybus_manager
             this.числоМашинNumericUpDown.Name = "числоМашинNumericUpDown";
             this.числоМашинNumericUpDown.Size = new System.Drawing.Size(278, 29);
             this.числоМашинNumericUpDown.TabIndex = 13;
-            // 
-            // числоОстановокLabel
-            // 
-            числоОстановокLabel.AutoSize = true;
-            числоОстановокLabel.Location = new System.Drawing.Point(29, 143);
-            числоОстановокLabel.Name = "числоОстановокLabel";
-            числоОстановокLabel.Size = new System.Drawing.Size(171, 24);
-            числоОстановокLabel.TabIndex = 13;
-            числоОстановокLabel.Text = "Число Остановок:";
             // 
             // числоОстановокNumericUpDown
             // 
@@ -225,6 +234,7 @@ namespace Trolleybus_manager
             this.Add.TabIndex = 15;
             this.Add.Text = "Добавить";
             this.Add.UseVisualStyleBackColor = true;
+            this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
             // Cancel
             // 
@@ -234,21 +244,13 @@ namespace Trolleybus_manager
             this.Cancel.TabIndex = 16;
             this.Cancel.Text = "Отмена";
             this.Cancel.UseVisualStyleBackColor = true;
-            // 
-            // справочникОстановокBindingSource
-            // 
-            this.справочникОстановокBindingSource.DataMember = "СправочникОстановок";
-            this.справочникОстановокBindingSource.DataSource = this.manageDataSet;
-            // 
-            // справочникОстановокTableAdapter
-            // 
-            this.справочникОстановокTableAdapter.ClearBeforeFill = true;
+            this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // AddPath
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(506, 363);
+            this.ClientSize = new System.Drawing.Size(498, 355);
             this.ControlBox = false;
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.Add);
@@ -268,7 +270,7 @@ namespace Trolleybus_manager
             this.Controls.Add(this.номерМаршрутаTextBox);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "AddPath";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -277,9 +279,9 @@ namespace Trolleybus_manager
             ((System.ComponentModel.ISupportInitialize)(this.manageDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.маршрутыBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.протяженностьNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.справочникОстановокBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.числоМашинNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.числоОстановокNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.справочникОстановокBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

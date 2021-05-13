@@ -914,9 +914,12 @@ namespace Trolleybus_manager {
                 base.Columns.Add(this.columnНазваниеОстановки);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnНомерОстановки}, true));
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint2", new global::System.Data.DataColumn[] {
+                                this.columnНазваниеОстановки}, false));
                 this.columnНомерОстановки.AllowDBNull = false;
                 this.columnНомерОстановки.Unique = true;
                 this.columnНомерОстановки.MaxLength = 255;
+                this.columnНазваниеОстановки.Unique = true;
                 this.columnНазваниеОстановки.MaxLength = 255;
             }
             
@@ -2686,12 +2689,36 @@ namespace Trolleybus_manager.manageDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[4];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT НомерМаршрута, Протяженность, Время, ЧислоОстановок, НачалоДвижения, Конец" +
                 "Движения, ЧислоМашин FROM Маршруты";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "DELETE FROM Маршруты\r\nWHERE        НомерМаршрута = ? ";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("НомерМаршрута", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "НомерМаршрута", global::System.Data.DataRowVersion.Original, false, null));
+            this._commandCollection[2] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT НомерМаршрута, Протяженность, Время, ЧислоОстановок, НачалоДвижения, Конец" +
+                "Движения, ЧислоМашин FROM Маршруты\r\nWHERE НомерМаршрута = ?";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("НомерМаршрута", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "НомерМаршрута", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[3] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "UPDATE       Маршруты\r\nSET                Протяженность = ?, Время = ?, ЧислоОста" +
+                "новок = ?, НачалоДвижения = ?, КонецДвижения = ?, ЧислоМашин = ?\r\nWHERE       Но" +
+                "мерМаршрута = ?";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Протяженность", global::System.Data.OleDb.OleDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Протяженность", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Время", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Время", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ЧислоОстановок", global::System.Data.OleDb.OleDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ЧислоОстановок", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("НачалоДвижения", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "НачалоДвижения", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("КонецДвижения", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "КонецДвижения", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ЧислоМашин", global::System.Data.OleDb.OleDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ЧислоМашин", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_НомерМаршрута", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "НомерМаршрута", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2716,6 +2743,25 @@ namespace Trolleybus_manager.manageDataSetTableAdapters {
             manageDataSet.МаршрутыDataTable dataTable = new manageDataSet.МаршрутыDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByNumberPath(manageDataSet.МаршрутыDataTable dataTable, string НомерМаршрута) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((НомерМаршрута == null)) {
+                throw new global::System.ArgumentNullException("НомерМаршрута");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(НомерМаршрута));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3008,6 +3054,100 @@ namespace Trolleybus_manager.manageDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(global::System.Nullable<short> Протяженность, global::System.Nullable<global::System.DateTime> Время, global::System.Nullable<short> ЧислоОстановок, string НачалоДвижения, string КонецДвижения, global::System.Nullable<short> ЧислоМашин, string Original_НомерМаршрута, global::System.Nullable<short> Original_Протяженность, global::System.Nullable<global::System.DateTime> Original_Время, global::System.Nullable<short> Original_ЧислоОстановок, string Original_НачалоДвижения, string Original_КонецДвижения, global::System.Nullable<short> Original_ЧислоМашин) {
             return this.Update(Original_НомерМаршрута, Протяженность, Время, ЧислоОстановок, НачалоДвижения, КонецДвижения, ЧислоМашин, Original_НомерМаршрута, Original_Протяженность, Original_Время, Original_ЧислоОстановок, Original_НачалоДвижения, Original_КонецДвижения, Original_ЧислоМашин);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeletePath(string НомерМаршрута) {
+            global::System.Data.OleDb.OleDbCommand command = this.CommandCollection[1];
+            if ((НомерМаршрута == null)) {
+                throw new global::System.ArgumentNullException("НомерМаршрута");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(НомерМаршрута));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdatePath(global::System.Nullable<short> Протяженность, global::System.Nullable<global::System.DateTime> Время, global::System.Nullable<short> ЧислоОстановок, string НачалоДвижения, string КонецДвижения, global::System.Nullable<short> ЧислоМашин, string Original_НомерМаршрута) {
+            global::System.Data.OleDb.OleDbCommand command = this.CommandCollection[3];
+            if ((Протяженность.HasValue == true)) {
+                command.Parameters[0].Value = ((short)(Протяженность.Value));
+            }
+            else {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((Время.HasValue == true)) {
+                command.Parameters[1].Value = ((System.DateTime)(Время.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((ЧислоОстановок.HasValue == true)) {
+                command.Parameters[2].Value = ((short)(ЧислоОстановок.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((НачалоДвижения == null)) {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[3].Value = ((string)(НачалоДвижения));
+            }
+            if ((КонецДвижения == null)) {
+                command.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[4].Value = ((string)(КонецДвижения));
+            }
+            if ((ЧислоМашин.HasValue == true)) {
+                command.Parameters[5].Value = ((short)(ЧислоМашин.Value));
+            }
+            else {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Original_НомерМаршрута == null)) {
+                throw new global::System.ArgumentNullException("Original_НомерМаршрута");
+            }
+            else {
+                command.Parameters[6].Value = ((string)(Original_НомерМаршрута));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     

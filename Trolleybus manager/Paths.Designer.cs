@@ -30,11 +30,12 @@ namespace Trolleybus_manager
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.manageDataSet = new Trolleybus_manager.manageDataSet();
-            this.маршрутыBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.маршрутыTableAdapter = new Trolleybus_manager.manageDataSetTableAdapters.МаршрутыTableAdapter();
-            this.tableAdapterManager = new Trolleybus_manager.manageDataSetTableAdapters.TableAdapterManager();
             this.маршрутыDataGridView = new System.Windows.Forms.DataGridView();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.запросыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AddNewPath = new System.Windows.Forms.ToolStripMenuItem();
+            this.ChangePath = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeletePath = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,38 +43,15 @@ namespace Trolleybus_manager
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.запросыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AddNewPath = new System.Windows.Forms.ToolStripMenuItem();
-            this.ChangePath = new System.Windows.Forms.ToolStripMenuItem();
-            this.DeletePath = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.manageDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.маршрутыBindingSource)).BeginInit();
+            this.маршрутыBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.manageDataSet = new Trolleybus_manager.manageDataSet();
+            this.маршрутыTableAdapter = new Trolleybus_manager.manageDataSetTableAdapters.МаршрутыTableAdapter();
+            this.tableAdapterManager = new Trolleybus_manager.manageDataSetTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.маршрутыDataGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.маршрутыBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.manageDataSet)).BeginInit();
             this.SuspendLayout();
-            // 
-            // manageDataSet
-            // 
-            this.manageDataSet.DataSetName = "manageDataSet";
-            this.manageDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // маршрутыBindingSource
-            // 
-            this.маршрутыBindingSource.DataMember = "Маршруты";
-            this.маршрутыBindingSource.DataSource = this.manageDataSet;
-            // 
-            // маршрутыTableAdapter
-            // 
-            this.маршрутыTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.UpdateOrder = Trolleybus_manager.manageDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.МаршрутыTableAdapter = this.маршрутыTableAdapter;
-            this.tableAdapterManager.СправочникОстановокTableAdapter = null;
-            this.tableAdapterManager.ТроллейбусыTableAdapter = null;
             // 
             // маршрутыDataGridView
             // 
@@ -96,6 +74,45 @@ namespace Trolleybus_manager
             this.маршрутыDataGridView.Name = "маршрутыDataGridView";
             this.маршрутыDataGridView.Size = new System.Drawing.Size(837, 360);
             this.маршрутыDataGridView.TabIndex = 1;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.запросыToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(861, 24);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // запросыToolStripMenuItem
+            // 
+            this.запросыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AddNewPath,
+            this.ChangePath,
+            this.DeletePath});
+            this.запросыToolStripMenuItem.Name = "запросыToolStripMenuItem";
+            this.запросыToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.запросыToolStripMenuItem.Text = "Запросы";
+            // 
+            // AddNewPath
+            // 
+            this.AddNewPath.Name = "AddNewPath";
+            this.AddNewPath.Size = new System.Drawing.Size(210, 22);
+            this.AddNewPath.Text = "Создать новый маршрут";
+            this.AddNewPath.Click += new System.EventHandler(this.AddNewPath_Click);
+            // 
+            // ChangePath
+            // 
+            this.ChangePath.Name = "ChangePath";
+            this.ChangePath.Size = new System.Drawing.Size(210, 22);
+            this.ChangePath.Text = "Изменить маршрут";
+            // 
+            // DeletePath
+            // 
+            this.DeletePath.Name = "DeletePath";
+            this.DeletePath.Size = new System.Drawing.Size(210, 22);
+            this.DeletePath.Text = "Удалить маршрут";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -139,43 +156,27 @@ namespace Trolleybus_manager
             this.dataGridViewTextBoxColumn7.HeaderText = "Число машин";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
-            // menuStrip1
+            // маршрутыBindingSource
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.запросыToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(861, 24);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
+            this.маршрутыBindingSource.DataMember = "Маршруты";
+            this.маршрутыBindingSource.DataSource = this.manageDataSet;
             // 
-            // запросыToolStripMenuItem
+            // manageDataSet
             // 
-            this.запросыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AddNewPath,
-            this.ChangePath,
-            this.DeletePath});
-            this.запросыToolStripMenuItem.Name = "запросыToolStripMenuItem";
-            this.запросыToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
-            this.запросыToolStripMenuItem.Text = "Запросы";
+            this.manageDataSet.DataSetName = "manageDataSet";
+            this.manageDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // AddNewPath
+            // маршрутыTableAdapter
             // 
-            this.AddNewPath.Name = "AddNewPath";
-            this.AddNewPath.Size = new System.Drawing.Size(210, 22);
-            this.AddNewPath.Text = "Создать новый маршрут";
+            this.маршрутыTableAdapter.ClearBeforeFill = true;
             // 
-            // ChangePath
+            // tableAdapterManager
             // 
-            this.ChangePath.Name = "ChangePath";
-            this.ChangePath.Size = new System.Drawing.Size(210, 22);
-            this.ChangePath.Text = "Изменить маршрут";
-            // 
-            // DeletePath
-            // 
-            this.DeletePath.Name = "DeletePath";
-            this.DeletePath.Size = new System.Drawing.Size(210, 22);
-            this.DeletePath.Text = "Удалить маршрут";
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.UpdateOrder = Trolleybus_manager.manageDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.МаршрутыTableAdapter = this.маршрутыTableAdapter;
+            this.tableAdapterManager.СправочникОстановокTableAdapter = null;
+            this.tableAdapterManager.ТроллейбусыTableAdapter = null;
             // 
             // Paths
             // 
@@ -193,11 +194,11 @@ namespace Trolleybus_manager
             this.Text = "Маршруты";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Paths_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.manageDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.маршрутыBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.маршрутыDataGridView)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.маршрутыBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.manageDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
