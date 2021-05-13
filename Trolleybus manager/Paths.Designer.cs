@@ -35,8 +35,6 @@ namespace Trolleybus_manager
             this.маршрутыTableAdapter = new Trolleybus_manager.manageDataSetTableAdapters.МаршрутыTableAdapter();
             this.tableAdapterManager = new Trolleybus_manager.manageDataSetTableAdapters.TableAdapterManager();
             this.маршрутыDataGridView = new System.Windows.Forms.DataGridView();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.запросыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +42,11 @@ namespace Trolleybus_manager
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.запросыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AddNewPath = new System.Windows.Forms.ToolStripMenuItem();
+            this.ChangePath = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeletePath = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.manageDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.маршрутыBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.маршрутыDataGridView)).BeginInit();
@@ -94,22 +97,6 @@ namespace Trolleybus_manager
             this.маршрутыDataGridView.Size = new System.Drawing.Size(837, 360);
             this.маршрутыDataGridView.TabIndex = 1;
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.запросыToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(861, 24);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // запросыToolStripMenuItem
-            // 
-            this.запросыToolStripMenuItem.Name = "запросыToolStripMenuItem";
-            this.запросыToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
-            this.запросыToolStripMenuItem.Text = "Запросы";
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "НомерМаршрута";
@@ -152,6 +139,44 @@ namespace Trolleybus_manager
             this.dataGridViewTextBoxColumn7.HeaderText = "Число машин";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.запросыToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(861, 24);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // запросыToolStripMenuItem
+            // 
+            this.запросыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AddNewPath,
+            this.ChangePath,
+            this.DeletePath});
+            this.запросыToolStripMenuItem.Name = "запросыToolStripMenuItem";
+            this.запросыToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.запросыToolStripMenuItem.Text = "Запросы";
+            // 
+            // AddNewPath
+            // 
+            this.AddNewPath.Name = "AddNewPath";
+            this.AddNewPath.Size = new System.Drawing.Size(210, 22);
+            this.AddNewPath.Text = "Создать новый маршрут";
+            // 
+            // ChangePath
+            // 
+            this.ChangePath.Name = "ChangePath";
+            this.ChangePath.Size = new System.Drawing.Size(210, 22);
+            this.ChangePath.Text = "Изменить маршрут";
+            // 
+            // DeletePath
+            // 
+            this.DeletePath.Name = "DeletePath";
+            this.DeletePath.Size = new System.Drawing.Size(210, 22);
+            this.DeletePath.Text = "Удалить маршрут";
+            // 
             // Paths
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -161,7 +186,7 @@ namespace Trolleybus_manager
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Paths";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -194,5 +219,8 @@ namespace Trolleybus_manager
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem запросыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AddNewPath;
+        private System.Windows.Forms.ToolStripMenuItem ChangePath;
+        private System.Windows.Forms.ToolStripMenuItem DeletePath;
     }
 }

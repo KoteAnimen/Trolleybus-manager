@@ -30,11 +30,19 @@ namespace Trolleybus_manager {
         
         private ТроллейбусыDataTable tableТроллейбусы;
         
+        private BussesDataTable tableBusses;
+        
         private global::System.Data.DataRelation relationСправочникОстановокМаршруты;
         
         private global::System.Data.DataRelation relationСправочникОстановокМаршруты1;
         
         private global::System.Data.DataRelation relationМаршрутыТроллейбусы;
+        
+        private global::System.Data.DataRelation relationМаршрутыТроллейбусы1;
+        
+        private global::System.Data.DataRelation relationСправочникОстановокМаршруты2;
+        
+        private global::System.Data.DataRelation relationСправочникОстановокМаршруты11;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -72,6 +80,9 @@ namespace Trolleybus_manager {
                 }
                 if ((ds.Tables["Троллейбусы"] != null)) {
                     base.Tables.Add(new ТроллейбусыDataTable(ds.Tables["Троллейбусы"]));
+                }
+                if ((ds.Tables["Busses"] != null)) {
+                    base.Tables.Add(new BussesDataTable(ds.Tables["Busses"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -118,6 +129,16 @@ namespace Trolleybus_manager {
         public ТроллейбусыDataTable Троллейбусы {
             get {
                 return this.tableТроллейбусы;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public BussesDataTable Busses {
+            get {
+                return this.tableBusses;
             }
         }
         
@@ -197,6 +218,9 @@ namespace Trolleybus_manager {
                 if ((ds.Tables["Троллейбусы"] != null)) {
                     base.Tables.Add(new ТроллейбусыDataTable(ds.Tables["Троллейбусы"]));
                 }
+                if ((ds.Tables["Busses"] != null)) {
+                    base.Tables.Add(new BussesDataTable(ds.Tables["Busses"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -248,9 +272,18 @@ namespace Trolleybus_manager {
                     this.tableТроллейбусы.InitVars();
                 }
             }
+            this.tableBusses = ((BussesDataTable)(base.Tables["Busses"]));
+            if ((initTable == true)) {
+                if ((this.tableBusses != null)) {
+                    this.tableBusses.InitVars();
+                }
+            }
             this.relationСправочникОстановокМаршруты = this.Relations["СправочникОстановокМаршруты"];
             this.relationСправочникОстановокМаршруты1 = this.Relations["СправочникОстановокМаршруты1"];
             this.relationМаршрутыТроллейбусы = this.Relations["МаршрутыТроллейбусы"];
+            this.relationМаршрутыТроллейбусы1 = this.Relations["МаршрутыТроллейбусы1"];
+            this.relationСправочникОстановокМаршруты2 = this.Relations["СправочникОстановокМаршруты2"];
+            this.relationСправочникОстановокМаршруты11 = this.Relations["СправочникОстановокМаршруты11"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -267,6 +300,8 @@ namespace Trolleybus_manager {
             base.Tables.Add(this.tableСправочникОстановок);
             this.tableТроллейбусы = new ТроллейбусыDataTable();
             base.Tables.Add(this.tableТроллейбусы);
+            this.tableBusses = new BussesDataTable();
+            base.Tables.Add(this.tableBusses);
             this.relationСправочникОстановокМаршруты = new global::System.Data.DataRelation("СправочникОстановокМаршруты", new global::System.Data.DataColumn[] {
                         this.tableСправочникОстановок.НомерОстановкиColumn}, new global::System.Data.DataColumn[] {
                         this.tableМаршруты.НачалоДвиженияColumn}, false);
@@ -279,6 +314,18 @@ namespace Trolleybus_manager {
                         this.tableМаршруты.НомерМаршрутаColumn}, new global::System.Data.DataColumn[] {
                         this.tableТроллейбусы.НомерМаршрутаColumn}, false);
             this.Relations.Add(this.relationМаршрутыТроллейбусы);
+            this.relationМаршрутыТроллейбусы1 = new global::System.Data.DataRelation("МаршрутыТроллейбусы1", new global::System.Data.DataColumn[] {
+                        this.tableBusses.НомерМаршрутаColumn}, new global::System.Data.DataColumn[] {
+                        this.tableТроллейбусы.НомерМаршрутаColumn}, false);
+            this.Relations.Add(this.relationМаршрутыТроллейбусы1);
+            this.relationСправочникОстановокМаршруты2 = new global::System.Data.DataRelation("СправочникОстановокМаршруты2", new global::System.Data.DataColumn[] {
+                        this.tableСправочникОстановок.НомерОстановкиColumn}, new global::System.Data.DataColumn[] {
+                        this.tableBusses.НачалоДвиженияColumn}, false);
+            this.Relations.Add(this.relationСправочникОстановокМаршруты2);
+            this.relationСправочникОстановокМаршруты11 = new global::System.Data.DataRelation("СправочникОстановокМаршруты11", new global::System.Data.DataColumn[] {
+                        this.tableСправочникОстановок.НомерОстановкиColumn}, new global::System.Data.DataColumn[] {
+                        this.tableBusses.КонецДвиженияColumn}, false);
+            this.Relations.Add(this.relationСправочникОстановокМаршруты11);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -296,6 +343,12 @@ namespace Trolleybus_manager {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeТроллейбусы() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeBusses() {
             return false;
         }
         
@@ -362,6 +415,9 @@ namespace Trolleybus_manager {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void ТроллейбусыRowChangeEventHandler(object sender, ТроллейбусыRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void BussesRowChangeEventHandler(object sender, BussesRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1295,6 +1351,333 @@ namespace Trolleybus_manager {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class BussesDataTable : global::System.Data.TypedTableBase<BussesRow> {
+            
+            private global::System.Data.DataColumn columnНомерМаршрута;
+            
+            private global::System.Data.DataColumn columnСостояние;
+            
+            private global::System.Data.DataColumn columnВремяОтправления;
+            
+            private global::System.Data.DataColumn columnНачалоДвижения;
+            
+            private global::System.Data.DataColumn columnКонецДвижения;
+            
+            private global::System.Data.DataColumn columnПротяженность;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public BussesDataTable() {
+                this.TableName = "Busses";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal BussesDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected BussesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn НомерМаршрутаColumn {
+                get {
+                    return this.columnНомерМаршрута;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn СостояниеColumn {
+                get {
+                    return this.columnСостояние;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ВремяОтправленияColumn {
+                get {
+                    return this.columnВремяОтправления;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn НачалоДвиженияColumn {
+                get {
+                    return this.columnНачалоДвижения;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn КонецДвиженияColumn {
+                get {
+                    return this.columnКонецДвижения;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ПротяженностьColumn {
+                get {
+                    return this.columnПротяженность;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public BussesRow this[int index] {
+                get {
+                    return ((BussesRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event BussesRowChangeEventHandler BussesRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event BussesRowChangeEventHandler BussesRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event BussesRowChangeEventHandler BussesRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event BussesRowChangeEventHandler BussesRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddBussesRow(BussesRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public BussesRow AddBussesRow(string НомерМаршрута, string Состояние, System.DateTime ВремяОтправления, СправочникОстановокRow parentСправочникОстановокRowByСправочникОстановокМаршруты2, СправочникОстановокRow parentСправочникОстановокRowByСправочникОстановокМаршруты11, short Протяженность) {
+                BussesRow rowBussesRow = ((BussesRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        НомерМаршрута,
+                        Состояние,
+                        ВремяОтправления,
+                        null,
+                        null,
+                        Протяженность};
+                if ((parentСправочникОстановокRowByСправочникОстановокМаршруты2 != null)) {
+                    columnValuesArray[3] = parentСправочникОстановокRowByСправочникОстановокМаршруты2[0];
+                }
+                if ((parentСправочникОстановокRowByСправочникОстановокМаршруты11 != null)) {
+                    columnValuesArray[4] = parentСправочникОстановокRowByСправочникОстановокМаршруты11[0];
+                }
+                rowBussesRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowBussesRow);
+                return rowBussesRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                BussesDataTable cln = ((BussesDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new BussesDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnНомерМаршрута = base.Columns["НомерМаршрута"];
+                this.columnСостояние = base.Columns["Состояние"];
+                this.columnВремяОтправления = base.Columns["ВремяОтправления"];
+                this.columnНачалоДвижения = base.Columns["НачалоДвижения"];
+                this.columnКонецДвижения = base.Columns["КонецДвижения"];
+                this.columnПротяженность = base.Columns["Протяженность"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnНомерМаршрута = new global::System.Data.DataColumn("НомерМаршрута", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnНомерМаршрута);
+                this.columnСостояние = new global::System.Data.DataColumn("Состояние", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnСостояние);
+                this.columnВремяОтправления = new global::System.Data.DataColumn("ВремяОтправления", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnВремяОтправления);
+                this.columnНачалоДвижения = new global::System.Data.DataColumn("НачалоДвижения", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnНачалоДвижения);
+                this.columnКонецДвижения = new global::System.Data.DataColumn("КонецДвижения", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnКонецДвижения);
+                this.columnПротяженность = new global::System.Data.DataColumn("Протяженность", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnПротяженность);
+                this.columnНомерМаршрута.MaxLength = 255;
+                this.columnСостояние.MaxLength = 255;
+                this.columnНачалоДвижения.MaxLength = 255;
+                this.columnКонецДвижения.MaxLength = 255;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public BussesRow NewBussesRow() {
+                return ((BussesRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new BussesRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(BussesRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.BussesRowChanged != null)) {
+                    this.BussesRowChanged(this, new BussesRowChangeEvent(((BussesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.BussesRowChanging != null)) {
+                    this.BussesRowChanging(this, new BussesRowChangeEvent(((BussesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.BussesRowDeleted != null)) {
+                    this.BussesRowDeleted(this, new BussesRowChangeEvent(((BussesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.BussesRowDeleting != null)) {
+                    this.BussesRowDeleting(this, new BussesRowChangeEvent(((BussesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveBussesRow(BussesRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                manageDataSet ds = new manageDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "BussesDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class МаршрутыRow : global::System.Data.DataRow {
@@ -1596,6 +1979,28 @@ namespace Trolleybus_manager {
                     return ((МаршрутыRow[])(base.GetChildRows(this.Table.ChildRelations["СправочникОстановокМаршруты1"])));
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public BussesRow[] GetBussesRowsByСправочникОстановокМаршруты2() {
+                if ((this.Table.ChildRelations["СправочникОстановокМаршруты2"] == null)) {
+                    return new BussesRow[0];
+                }
+                else {
+                    return ((BussesRow[])(base.GetChildRows(this.Table.ChildRelations["СправочникОстановокМаршруты2"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public BussesRow[] GetBussesRowsByСправочникОстановокМаршруты11() {
+                if ((this.Table.ChildRelations["СправочникОстановокМаршруты11"] == null)) {
+                    return new BussesRow[0];
+                }
+                else {
+                    return ((BussesRow[])(base.GetChildRows(this.Table.ChildRelations["СправочникОстановокМаршруты11"])));
+                }
+            }
         }
         
         /// <summary>
@@ -1684,6 +2089,17 @@ namespace Trolleybus_manager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public BussesRow BussesRow {
+                get {
+                    return ((BussesRow)(this.GetParentRow(this.Table.ParentRelations["МаршрутыТроллейбусы1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["МаршрутыТроллейбусы1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsСостояниеNull() {
                 return this.IsNull(this.tableТроллейбусы.СостояниеColumn);
             }
@@ -1716,6 +2132,222 @@ namespace Trolleybus_manager {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetВремяОтправленияNull() {
                 this[this.tableТроллейбусы.ВремяОтправленияColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class BussesRow : global::System.Data.DataRow {
+            
+            private BussesDataTable tableBusses;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal BussesRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableBusses = ((BussesDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string НомерМаршрута {
+                get {
+                    try {
+                        return ((string)(this[this.tableBusses.НомерМаршрутаColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'НомерМаршрута\' в таблице \'Busses\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBusses.НомерМаршрутаColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Состояние {
+                get {
+                    try {
+                        return ((string)(this[this.tableBusses.СостояниеColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Состояние\' в таблице \'Busses\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBusses.СостояниеColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime ВремяОтправления {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableBusses.ВремяОтправленияColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ВремяОтправления\' в таблице \'Busses\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBusses.ВремяОтправленияColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string НачалоДвижения {
+                get {
+                    try {
+                        return ((string)(this[this.tableBusses.НачалоДвиженияColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'НачалоДвижения\' в таблице \'Busses\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBusses.НачалоДвиженияColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string КонецДвижения {
+                get {
+                    try {
+                        return ((string)(this[this.tableBusses.КонецДвиженияColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'КонецДвижения\' в таблице \'Busses\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBusses.КонецДвиженияColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public short Протяженность {
+                get {
+                    try {
+                        return ((short)(this[this.tableBusses.ПротяженностьColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Протяженность\' в таблице \'Busses\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBusses.ПротяженностьColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public СправочникОстановокRow СправочникОстановокRowByСправочникОстановокМаршруты2 {
+                get {
+                    return ((СправочникОстановокRow)(this.GetParentRow(this.Table.ParentRelations["СправочникОстановокМаршруты2"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["СправочникОстановокМаршруты2"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public СправочникОстановокRow СправочникОстановокRowByСправочникОстановокМаршруты11 {
+                get {
+                    return ((СправочникОстановокRow)(this.GetParentRow(this.Table.ParentRelations["СправочникОстановокМаршруты11"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["СправочникОстановокМаршруты11"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsНомерМаршрутаNull() {
+                return this.IsNull(this.tableBusses.НомерМаршрутаColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetНомерМаршрутаNull() {
+                this[this.tableBusses.НомерМаршрутаColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsСостояниеNull() {
+                return this.IsNull(this.tableBusses.СостояниеColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetСостояниеNull() {
+                this[this.tableBusses.СостояниеColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsВремяОтправленияNull() {
+                return this.IsNull(this.tableBusses.ВремяОтправленияColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetВремяОтправленияNull() {
+                this[this.tableBusses.ВремяОтправленияColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsНачалоДвиженияNull() {
+                return this.IsNull(this.tableBusses.НачалоДвиженияColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetНачалоДвиженияNull() {
+                this[this.tableBusses.НачалоДвиженияColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsКонецДвиженияNull() {
+                return this.IsNull(this.tableBusses.КонецДвиженияColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetКонецДвиженияNull() {
+                this[this.tableBusses.КонецДвиженияColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsПротяженностьNull() {
+                return this.IsNull(this.tableBusses.ПротяженностьColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetПротяженностьNull() {
+                this[this.tableBusses.ПротяженностьColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ТроллейбусыRow[] GetТроллейбусыRows() {
+                if ((this.Table.ChildRelations["МаршрутыТроллейбусы1"] == null)) {
+                    return new ТроллейбусыRow[0];
+                }
+                else {
+                    return ((ТроллейбусыRow[])(base.GetChildRows(this.Table.ChildRelations["МаршрутыТроллейбусы1"])));
+                }
             }
         }
         
@@ -1807,6 +2439,40 @@ namespace Trolleybus_manager {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ТроллейбусыRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class BussesRowChangeEvent : global::System.EventArgs {
+            
+            private BussesRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public BussesRowChangeEvent(BussesRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public BussesRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3103,6 +3769,180 @@ namespace Trolleybus_manager.manageDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string Состояние, string Крыша, global::System.Nullable<global::System.DateTime> ВремяОтправления, string Original_НомерМаршрута, string Original_Состояние, string Original_Крыша, global::System.Nullable<global::System.DateTime> Original_ВремяОтправления) {
             return this.Update(Original_НомерМаршрута, Состояние, Крыша, ВремяОтправления, Original_НомерМаршрута, Original_Состояние, Original_Крыша, Original_ВремяОтправления);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class BussesTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.OleDb.OleDbDataAdapter _adapter;
+        
+        private global::System.Data.OleDb.OleDbConnection _connection;
+        
+        private global::System.Data.OleDb.OleDbTransaction _transaction;
+        
+        private global::System.Data.OleDb.OleDbCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public BussesTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::System.Data.OleDb.OleDbDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.OleDb.OleDbConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.OleDb.OleDbTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.OleDb.OleDbCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Busses";
+            tableMapping.ColumnMappings.Add("НомерМаршрута", "НомерМаршрута");
+            tableMapping.ColumnMappings.Add("Состояние", "Состояние");
+            tableMapping.ColumnMappings.Add("ВремяОтправления", "ВремяОтправления");
+            tableMapping.ColumnMappings.Add("НачалоДвижения", "НачалоДвижения");
+            tableMapping.ColumnMappings.Add("КонецДвижения", "КонецДвижения");
+            tableMapping.ColumnMappings.Add("Протяженность", "Протяженность");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.OleDb.OleDbConnection();
+            this._connection.ConnectionString = global::Trolleybus_manager.Properties.Settings.Default.manageConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
+            this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT        Троллейбусы.НомерМаршрута, Троллейбусы.Состояние, Троллейбусы.ВремяОтправления, Маршруты.НачалоДвижения, Маршруты.КонецДвижения, Маршруты.Протяженность
+FROM            (Маршруты LEFT OUTER JOIN
+                         Троллейбусы ON Маршруты.НомерМаршрута = Троллейбусы.НомерМаршрута)";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(manageDataSet.BussesDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual manageDataSet.BussesDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            manageDataSet.BussesDataTable dataTable = new manageDataSet.BussesDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
         }
     }
     

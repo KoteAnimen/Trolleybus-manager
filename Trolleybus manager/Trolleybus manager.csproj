@@ -46,6 +46,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangeTrolleybus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeTrolleybus.Designer.cs">
+      <DependentUpon>ChangeTrolleybus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewTrolleybus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewTrolleybus.Designer.cs">
+      <DependentUpon>AddNewTrolleybus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePath.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePath.Designer.cs">
+      <DependentUpon>ChangePath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPath.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPath.Designer.cs">
+      <DependentUpon>AddPath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeState.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeState.Designer.cs">
+      <DependentUpon>ChangeState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddState.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddState.Designer.cs">
+      <DependentUpon>AddState.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListStates.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +113,24 @@
     <Compile Include="Trolleybusses.Designer.cs">
       <DependentUpon>Trolleybusses.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ChangeTrolleybus.resx">
+      <DependentUpon>ChangeTrolleybus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNewTrolleybus.resx">
+      <DependentUpon>AddNewTrolleybus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangePath.resx">
+      <DependentUpon>ChangePath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddPath.resx">
+      <DependentUpon>AddPath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeState.resx">
+      <DependentUpon>ChangeState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddState.resx">
+      <DependentUpon>AddState.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ListStates.resx">
       <DependentUpon>ListStates.cs</DependentUpon>
     </EmbeddedResource>

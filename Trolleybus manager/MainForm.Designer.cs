@@ -30,12 +30,12 @@ namespace Trolleybus_manager
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Exit = new System.Windows.Forms.Button();
+            this.Trolleybusses = new System.Windows.Forms.Button();
+            this.Paths = new System.Windows.Forms.Button();
+            this.ListStations = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ListStations = new System.Windows.Forms.Button();
-            this.Paths = new System.Windows.Forms.Button();
-            this.Trolleybusses = new System.Windows.Forms.Button();
-            this.Exit = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -47,13 +47,53 @@ namespace Trolleybus_manager
             this.groupBox1.Controls.Add(this.Paths);
             this.groupBox1.Controls.Add(this.ListStations);
             this.groupBox1.Location = new System.Drawing.Point(15, 30);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
             this.groupBox1.Size = new System.Drawing.Size(353, 317);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Главное меню";
+            // 
+            // Exit
+            // 
+            this.Exit.Location = new System.Drawing.Point(55, 250);
+            this.Exit.Name = "Exit";
+            this.Exit.Size = new System.Drawing.Size(236, 39);
+            this.Exit.TabIndex = 3;
+            this.Exit.Text = "Выход";
+            this.Exit.UseVisualStyleBackColor = true;
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
+            // 
+            // Trolleybusses
+            // 
+            this.Trolleybusses.Location = new System.Drawing.Point(55, 138);
+            this.Trolleybusses.Name = "Trolleybusses";
+            this.Trolleybusses.Size = new System.Drawing.Size(236, 39);
+            this.Trolleybusses.TabIndex = 2;
+            this.Trolleybusses.Text = "Троллейбусы";
+            this.Trolleybusses.UseVisualStyleBackColor = true;
+            this.Trolleybusses.Click += new System.EventHandler(this.Trolleybusses_Click);
+            // 
+            // Paths
+            // 
+            this.Paths.Location = new System.Drawing.Point(55, 93);
+            this.Paths.Name = "Paths";
+            this.Paths.Size = new System.Drawing.Size(236, 39);
+            this.Paths.TabIndex = 1;
+            this.Paths.Text = "Маршруты";
+            this.Paths.UseVisualStyleBackColor = true;
+            this.Paths.Click += new System.EventHandler(this.Paths_Click);
+            // 
+            // ListStations
+            // 
+            this.ListStations.Location = new System.Drawing.Point(55, 48);
+            this.ListStations.Name = "ListStations";
+            this.ListStations.Size = new System.Drawing.Size(236, 39);
+            this.ListStations.TabIndex = 0;
+            this.ListStations.Text = "Справочник остановок";
+            this.ListStations.UseVisualStyleBackColor = true;
+            this.ListStations.Click += new System.EventHandler(this.ListStations_Click);
             // 
             // menuStrip1
             // 
@@ -71,44 +111,7 @@ namespace Trolleybus_manager
             this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             // 
-            // ListStations
-            // 
-            this.ListStations.Location = new System.Drawing.Point(55, 48);
-            this.ListStations.Name = "ListStations";
-            this.ListStations.Size = new System.Drawing.Size(236, 39);
-            this.ListStations.TabIndex = 0;
-            this.ListStations.Text = "Справочник остановок";
-            this.ListStations.UseVisualStyleBackColor = true;
-            // 
-            // Paths
-            // 
-            this.Paths.Location = new System.Drawing.Point(55, 93);
-            this.Paths.Name = "Paths";
-            this.Paths.Size = new System.Drawing.Size(236, 39);
-            this.Paths.TabIndex = 1;
-            this.Paths.Text = "Маршруты";
-            this.Paths.UseVisualStyleBackColor = true;
-            // 
-            // Trolleybusses
-            // 
-            this.Trolleybusses.Location = new System.Drawing.Point(55, 138);
-            this.Trolleybusses.Name = "Trolleybusses";
-            this.Trolleybusses.Size = new System.Drawing.Size(236, 39);
-            this.Trolleybusses.TabIndex = 2;
-            this.Trolleybusses.Text = "Троллейбусы";
-            this.Trolleybusses.UseVisualStyleBackColor = true;
-            // 
-            // Exit
-            // 
-            this.Exit.Location = new System.Drawing.Point(55, 250);
-            this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(236, 39);
-            this.Exit.TabIndex = 3;
-            this.Exit.Text = "Выход";
-            this.Exit.UseVisualStyleBackColor = true;
-            this.Exit.Click += new System.EventHandler(this.Exit_Click);
-            // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -117,10 +120,10 @@ namespace Trolleybus_manager
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Управление троллейбусами";
             this.groupBox1.ResumeLayout(false);

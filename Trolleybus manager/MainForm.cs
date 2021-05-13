@@ -21,5 +21,23 @@ namespace Trolleybus_manager
         {
             this.Close();
         }
+
+        private void ListStations_Click(object sender, EventArgs e)
+        {
+            ListStates list = new ListStates();
+            list.ShowDialog();
+        }
+
+        private void Paths_Click(object sender, EventArgs e)
+        {
+            Paths path = new Paths();
+            path.ShowDialog();
+        }
+
+        private void Trolleybusses_Click(object sender, EventArgs e)
+        {
+            Trolleybusses bus = new Trolleybusses();
+            bus.ShowDialog();
+        }
     }
 }
