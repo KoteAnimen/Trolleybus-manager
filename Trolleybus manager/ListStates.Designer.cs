@@ -126,18 +126,21 @@ namespace Trolleybus_manager
             this.AddState.Name = "AddState";
             this.AddState.Size = new System.Drawing.Size(187, 22);
             this.AddState.Text = "Добавить остановку";
+            this.AddState.Click += new System.EventHandler(this.AddState_Click);
             // 
             // ChangeState
             // 
             this.ChangeState.Name = "ChangeState";
             this.ChangeState.Size = new System.Drawing.Size(187, 22);
             this.ChangeState.Text = "Изменить остановку";
+            this.ChangeState.Click += new System.EventHandler(this.ChangeState_Click);
             // 
             // DeleteState
             // 
             this.DeleteState.Name = "DeleteState";
             this.DeleteState.Size = new System.Drawing.Size(187, 22);
             this.DeleteState.Text = "Удалить остановку";
+            this.DeleteState.Click += new System.EventHandler(this.DeleteState_Click);
             // 
             // ListStates
             // 

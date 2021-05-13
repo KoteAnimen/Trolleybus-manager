@@ -110,6 +110,7 @@ namespace Trolleybus_manager
             this.Change.TabIndex = 4;
             this.Change.Text = "Изменить";
             this.Change.UseVisualStyleBackColor = true;
+            this.Change.Click += new System.EventHandler(this.Change_Click);
             // 
             // Cancel
             // 
@@ -119,12 +120,13 @@ namespace Trolleybus_manager
             this.Cancel.TabIndex = 5;
             this.Cancel.Text = "Отмена";
             this.Cancel.UseVisualStyleBackColor = true;
+            this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // ChangeState
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(454, 171);
+            this.ClientSize = new System.Drawing.Size(450, 167);
             this.ControlBox = false;
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.Change);

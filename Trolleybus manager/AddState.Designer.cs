@@ -46,6 +46,24 @@ namespace Trolleybus_manager
             ((System.ComponentModel.ISupportInitialize)(this.справочникОстановокBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
+            // номерОстановкиLabel
+            // 
+            номерОстановкиLabel.AutoSize = true;
+            номерОстановкиLabel.Location = new System.Drawing.Point(39, 30);
+            номерОстановкиLabel.Name = "номерОстановкиLabel";
+            номерОстановкиLabel.Size = new System.Drawing.Size(177, 24);
+            номерОстановкиLabel.TabIndex = 1;
+            номерОстановкиLabel.Text = "Номер Остановки:";
+            // 
+            // названиеОстановкиLabel
+            // 
+            названиеОстановкиLabel.AutoSize = true;
+            названиеОстановкиLabel.Location = new System.Drawing.Point(11, 65);
+            названиеОстановкиLabel.Name = "названиеОстановкиLabel";
+            названиеОстановкиLabel.Size = new System.Drawing.Size(205, 24);
+            названиеОстановкиLabel.TabIndex = 2;
+            названиеОстановкиLabel.Text = "Название Остановки:";
+            // 
             // manageDataSet
             // 
             this.manageDataSet.DataSetName = "manageDataSet";
@@ -68,15 +86,6 @@ namespace Trolleybus_manager
             this.tableAdapterManager.СправочникОстановокTableAdapter = this.справочникОстановокTableAdapter;
             this.tableAdapterManager.ТроллейбусыTableAdapter = null;
             // 
-            // номерОстановкиLabel
-            // 
-            номерОстановкиLabel.AutoSize = true;
-            номерОстановкиLabel.Location = new System.Drawing.Point(39, 30);
-            номерОстановкиLabel.Name = "номерОстановкиLabel";
-            номерОстановкиLabel.Size = new System.Drawing.Size(177, 24);
-            номерОстановкиLabel.TabIndex = 1;
-            номерОстановкиLabel.Text = "Номер Остановки:";
-            // 
             // номерОстановкиTextBox
             // 
             this.номерОстановкиTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.справочникОстановокBindingSource, "НомерОстановки", true));
@@ -84,15 +93,6 @@ namespace Trolleybus_manager
             this.номерОстановкиTextBox.Name = "номерОстановкиTextBox";
             this.номерОстановкиTextBox.Size = new System.Drawing.Size(224, 29);
             this.номерОстановкиTextBox.TabIndex = 2;
-            // 
-            // названиеОстановкиLabel
-            // 
-            названиеОстановкиLabel.AutoSize = true;
-            названиеОстановкиLabel.Location = new System.Drawing.Point(11, 65);
-            названиеОстановкиLabel.Name = "названиеОстановкиLabel";
-            названиеОстановкиLabel.Size = new System.Drawing.Size(205, 24);
-            названиеОстановкиLabel.TabIndex = 2;
-            названиеОстановкиLabel.Text = "Название Остановки:";
             // 
             // названиеОстановкиTextBox
             // 
@@ -110,6 +110,7 @@ namespace Trolleybus_manager
             this.Add.TabIndex = 4;
             this.Add.Text = "Добавить";
             this.Add.UseVisualStyleBackColor = true;
+            this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
             // Cancel
             // 
@@ -119,12 +120,13 @@ namespace Trolleybus_manager
             this.Cancel.TabIndex = 5;
             this.Cancel.Text = "Отмена";
             this.Cancel.UseVisualStyleBackColor = true;
+            this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // AddState
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(458, 175);
+            this.ClientSize = new System.Drawing.Size(454, 171);
             this.ControlBox = false;
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.Add);
@@ -134,7 +136,7 @@ namespace Trolleybus_manager
             this.Controls.Add(this.номерОстановкиTextBox);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddState";

@@ -28,8 +28,34 @@ namespace Trolleybus_manager
         private void AddState_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "manageDataSet.СправочникОстановок". При необходимости она может быть перемещена или удалена.
-            this.справочникОстановокTableAdapter.Fill(this.manageDataSet.СправочникОстановок);
+            this.справочникОстановокTableAdapter.FillByNumberState(this.manageDataSet.СправочникОстановок, State.id);
+            номерОстановкиTextBox.Text = manageDataSet.СправочникОстановок.Rows[0][0].ToString();
+            названиеОстановкиTextBox.Text = manageDataSet.СправочникОстановок.Rows[0][1].ToString();
 
+        }
+
+        private void Cancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void Change_Click(object sender, EventArgs e)
+        {
+            if (номерОстановкиTextBox.Text == "")
+            {
+                MessageBox.Show("Не указан номер остановки", "Ошибка");
+                return;
+            }
+            if (названиеОстановкиTextBox.Text == "")
+            {
+                MessageBox.Show("Не указано название остановки", "Ошибка");
+                return;
+            }
+            else
+            {
+                справочникОстановокTableAdapter.UpdateState(номерОстановкиTextBox.Text, названиеОстановкиTextBox.Text, State.id);
+                Close();
+            }
         }
     }
 }
