@@ -73,6 +73,24 @@ namespace Trolleybus_manager
             состояниеLabel.TabIndex = 7;
             состояниеLabel.Text = "Состояние:";
             // 
+            // номерТроллейбусаLabel
+            // 
+            номерТроллейбусаLabel.AutoSize = true;
+            номерТроллейбусаLabel.Location = new System.Drawing.Point(15, 15);
+            номерТроллейбусаLabel.Name = "номерТроллейбусаLabel";
+            номерТроллейбусаLabel.Size = new System.Drawing.Size(195, 24);
+            номерТроллейбусаLabel.TabIndex = 10;
+            номерТроллейбусаLabel.Text = "Номер Троллейбуса:";
+            // 
+            // номерМаршрутаLabel
+            // 
+            номерМаршрутаLabel.AutoSize = true;
+            номерМаршрутаLabel.Location = new System.Drawing.Point(40, 50);
+            номерМаршрутаLabel.Name = "номерМаршрутаLabel";
+            номерМаршрутаLabel.Size = new System.Drawing.Size(170, 24);
+            номерМаршрутаLabel.TabIndex = 11;
+            номерМаршрутаLabel.Text = "Номер Маршрута:";
+            // 
             // manageDataSet
             // 
             this.manageDataSet.DataSetName = "manageDataSet";
@@ -112,6 +130,10 @@ namespace Trolleybus_manager
             // 
             this.состояниеComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.троллейбусыBindingSource, "Состояние", true));
             this.состояниеComboBox.FormattingEnabled = true;
+            this.состояниеComboBox.Items.AddRange(new object[] {
+            "В пути",
+            "Обслуживается",
+            "В ремонте"});
             this.состояниеComboBox.Location = new System.Drawing.Point(216, 85);
             this.состояниеComboBox.Name = "состояниеComboBox";
             this.состояниеComboBox.Size = new System.Drawing.Size(230, 32);
@@ -125,6 +147,7 @@ namespace Trolleybus_manager
             this.Add.TabIndex = 9;
             this.Add.Text = "Добавить";
             this.Add.UseVisualStyleBackColor = true;
+            this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
             // Cancel
             // 
@@ -136,15 +159,6 @@ namespace Trolleybus_manager
             this.Cancel.UseVisualStyleBackColor = true;
             this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
-            // номерТроллейбусаLabel
-            // 
-            номерТроллейбусаLabel.AutoSize = true;
-            номерТроллейбусаLabel.Location = new System.Drawing.Point(15, 15);
-            номерТроллейбусаLabel.Name = "номерТроллейбусаLabel";
-            номерТроллейбусаLabel.Size = new System.Drawing.Size(195, 24);
-            номерТроллейбусаLabel.TabIndex = 10;
-            номерТроллейбусаLabel.Text = "Номер Троллейбуса:";
-            // 
             // номерТроллейбусаTextBox
             // 
             this.номерТроллейбусаTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.троллейбусыBindingSource, "НомерТроллейбуса", true));
@@ -152,15 +166,6 @@ namespace Trolleybus_manager
             this.номерТроллейбусаTextBox.Name = "номерТроллейбусаTextBox";
             this.номерТроллейбусаTextBox.Size = new System.Drawing.Size(230, 29);
             this.номерТроллейбусаTextBox.TabIndex = 11;
-            // 
-            // номерМаршрутаLabel
-            // 
-            номерМаршрутаLabel.AutoSize = true;
-            номерМаршрутаLabel.Location = new System.Drawing.Point(40, 50);
-            номерМаршрутаLabel.Name = "номерМаршрутаLabel";
-            номерМаршрутаLabel.Size = new System.Drawing.Size(170, 24);
-            номерМаршрутаLabel.TabIndex = 11;
-            номерМаршрутаLabel.Text = "Номер Маршрута:";
             // 
             // номерМаршрутаComboBox
             // 

@@ -36,10 +36,6 @@ namespace Trolleybus_manager {
         
         private BussesDataTable tableBusses;
         
-        private global::System.Data.DataRelation relationСправочникОстановокМаршруты3;
-        
-        private global::System.Data.DataRelation relationСправочникОстановокМаршруты12;
-        
         private global::System.Data.DataRelation relationСправочникОстановокМаршруты1;
         
         private global::System.Data.DataRelation relationСправочникОстановокМаршруты;
@@ -342,8 +338,6 @@ namespace Trolleybus_manager {
                     this.tableBusses.InitVars();
                 }
             }
-            this.relationСправочникОстановокМаршруты3 = this.Relations["СправочникОстановокМаршруты3"];
-            this.relationСправочникОстановокМаршруты12 = this.Relations["СправочникОстановокМаршруты12"];
             this.relationСправочникОстановокМаршруты1 = this.Relations["СправочникОстановокМаршруты1"];
             this.relationСправочникОстановокМаршруты = this.Relations["СправочникОстановокМаршруты"];
             this.relationСправочникОстановокМаршруты4 = this.Relations["СправочникОстановокМаршруты4"];
@@ -378,14 +372,6 @@ namespace Trolleybus_manager {
             base.Tables.Add(this.tableТроллейбусы);
             this.tableBusses = new BussesDataTable();
             base.Tables.Add(this.tableBusses);
-            this.relationСправочникОстановокМаршруты3 = new global::System.Data.DataRelation("СправочникОстановокМаршруты3", new global::System.Data.DataColumn[] {
-                        this.tableСправочникОстановок2.НомерОстановкиColumn}, new global::System.Data.DataColumn[] {
-                        this.tableМаршруты.НачалоДвиженияColumn}, false);
-            this.Relations.Add(this.relationСправочникОстановокМаршруты3);
-            this.relationСправочникОстановокМаршруты12 = new global::System.Data.DataRelation("СправочникОстановокМаршруты12", new global::System.Data.DataColumn[] {
-                        this.tableСправочникОстановок2.НомерОстановкиColumn}, new global::System.Data.DataColumn[] {
-                        this.tableМаршруты.КонецДвиженияColumn}, false);
-            this.Relations.Add(this.relationСправочникОстановокМаршруты12);
             this.relationСправочникОстановокМаршруты1 = new global::System.Data.DataRelation("СправочникОстановокМаршруты1", new global::System.Data.DataColumn[] {
                         this.tableСправочникОстановок1.НомерОстановкиColumn}, new global::System.Data.DataColumn[] {
                         this.tableМаршруты.КонецДвиженияColumn}, false);
@@ -692,7 +678,7 @@ namespace Trolleybus_manager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public МаршрутыRow AddМаршрутыRow(string НомерМаршрута, short Протяженность, System.DateTime Время, short ЧислоОстановок, СправочникОстановок2Row parentСправочникОстановок2RowByСправочникОстановокМаршруты3, СправочникОстановок2Row parentСправочникОстановок2RowByСправочникОстановокМаршруты12, short ЧислоМашин) {
+            public МаршрутыRow AddМаршрутыRow(string НомерМаршрута, short Протяженность, System.DateTime Время, short ЧислоОстановок, СправочникОстановок1Row parentСправочникОстановок1RowByСправочникОстановокМаршруты, СправочникОстановок1Row parentСправочникОстановок1RowByСправочникОстановокМаршруты1, short ЧислоМашин) {
                 МаршрутыRow rowМаршрутыRow = ((МаршрутыRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         НомерМаршрута,
@@ -702,11 +688,11 @@ namespace Trolleybus_manager {
                         null,
                         null,
                         ЧислоМашин};
-                if ((parentСправочникОстановок2RowByСправочникОстановокМаршруты3 != null)) {
-                    columnValuesArray[4] = parentСправочникОстановок2RowByСправочникОстановокМаршруты3[0];
+                if ((parentСправочникОстановок1RowByСправочникОстановокМаршруты != null)) {
+                    columnValuesArray[4] = parentСправочникОстановок1RowByСправочникОстановокМаршруты[0];
                 }
-                if ((parentСправочникОстановок2RowByСправочникОстановокМаршруты12 != null)) {
-                    columnValuesArray[5] = parentСправочникОстановок2RowByСправочникОстановокМаршруты12[0];
+                if ((parentСправочникОстановок1RowByСправочникОстановокМаршруты1 != null)) {
+                    columnValuesArray[5] = parentСправочникОстановок1RowByСправочникОстановокМаршруты1[0];
                 }
                 rowМаршрутыRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowМаршрутыRow);
@@ -2503,28 +2489,6 @@ namespace Trolleybus_manager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public СправочникОстановок2Row СправочникОстановок2RowByСправочникОстановокМаршруты3 {
-                get {
-                    return ((СправочникОстановок2Row)(this.GetParentRow(this.Table.ParentRelations["СправочникОстановокМаршруты3"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["СправочникОстановокМаршруты3"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public СправочникОстановок2Row СправочникОстановок2RowByСправочникОстановокМаршруты12 {
-                get {
-                    return ((СправочникОстановок2Row)(this.GetParentRow(this.Table.ParentRelations["СправочникОстановокМаршруты12"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["СправочникОстановокМаршруты12"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public СправочникОстановок1Row СправочникОстановок1RowByСправочникОстановокМаршруты1 {
                 get {
                     return ((СправочникОстановок1Row)(this.GetParentRow(this.Table.ParentRelations["СправочникОстановокМаршруты1"])));
@@ -2901,28 +2865,6 @@ namespace Trolleybus_manager {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetНазваниеОстановкиNull() {
                 this[this.tableСправочникОстановок2.НазваниеОстановкиColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public МаршрутыRow[] GetМаршрутыRowsByСправочникОстановокМаршруты3() {
-                if ((this.Table.ChildRelations["СправочникОстановокМаршруты3"] == null)) {
-                    return new МаршрутыRow[0];
-                }
-                else {
-                    return ((МаршрутыRow[])(base.GetChildRows(this.Table.ChildRelations["СправочникОстановокМаршруты3"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public МаршрутыRow[] GetМаршрутыRowsByСправочникОстановокМаршруты12() {
-                if ((this.Table.ChildRelations["СправочникОстановокМаршруты12"] == null)) {
-                    return new МаршрутыRow[0];
-                }
-                else {
-                    return ((МаршрутыRow[])(base.GetChildRows(this.Table.ChildRelations["СправочникОстановокМаршруты12"])));
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

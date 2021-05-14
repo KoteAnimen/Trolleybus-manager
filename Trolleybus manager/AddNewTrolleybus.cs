@@ -38,5 +38,25 @@ namespace Trolleybus_manager
         {
             Close();
         }
+
+        private void Add_Click(object sender, EventArgs e)
+        {
+            if(номерТроллейбусаTextBox.Text == "")
+            {
+                MessageBox.Show("Не введен номер троллейбуса", "Ошибка");
+                return;
+            }
+            if(номерМаршрутаComboBox.Text == ""){
+                MessageBox.Show("Не введен номер маршрута", "Ошибка");
+                return;
+            }
+            if(состояниеComboBox.Text == "")
+            {
+                MessageBox.Show("Не введено состояние", "Ошибка");
+                return;
+            }
+            троллейбусыTableAdapter.Insert(номерТроллейбусаTextBox.Text, состояниеComboBox.Text, номерМаршрутаComboBox.Text, времяОтправленияDateTimePicker.Value);
+            Close();
+        }
     }
 }
