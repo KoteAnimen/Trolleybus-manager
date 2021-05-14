@@ -27,9 +27,16 @@ namespace Trolleybus_manager
 
         private void AddNewTrolleybus_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "manageDataSet.Маршруты". При необходимости она может быть перемещена или удалена.
+            this.маршрутыTableAdapter.Fill(this.manageDataSet.Маршруты);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "manageDataSet.Троллейбусы". При необходимости она может быть перемещена или удалена.
             this.троллейбусыTableAdapter.Fill(this.manageDataSet.Троллейбусы);
 
+        }
+
+        private void Cancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

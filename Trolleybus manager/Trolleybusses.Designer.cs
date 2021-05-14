@@ -32,19 +32,6 @@ namespace Trolleybus_manager
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.запросыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bussesDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bussesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.manageDataSet = new Trolleybus_manager.manageDataSet();
-            this.троллейбусыBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.троллейбусыTableAdapter = new Trolleybus_manager.manageDataSetTableAdapters.ТроллейбусыTableAdapter();
-            this.tableAdapterManager = new Trolleybus_manager.manageDataSetTableAdapters.TableAdapterManager();
-            this.bussesTableAdapter = new Trolleybus_manager.manageDataSetTableAdapters.BussesTableAdapter();
             this.AddTrolleybus = new System.Windows.Forms.ToolStripMenuItem();
             this.ChangeTrolleybus = new System.Windows.Forms.ToolStripMenuItem();
             this.DeteleTrolleybus = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,11 +40,26 @@ namespace Trolleybus_manager
             this.ShowBusByCare = new System.Windows.Forms.ToolStripMenuItem();
             this.ShowBusByInPath = new System.Windows.Forms.ToolStripMenuItem();
             this.ShowAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.bussesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.manageDataSet = new Trolleybus_manager.manageDataSet();
+            this.троллейбусыBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.троллейбусыTableAdapter = new Trolleybus_manager.manageDataSetTableAdapters.ТроллейбусыTableAdapter();
+            this.tableAdapterManager = new Trolleybus_manager.manageDataSetTableAdapters.TableAdapterManager();
+            this.bussesTableAdapter = new Trolleybus_manager.manageDataSetTableAdapters.BussesTableAdapter();
+            this.bussesDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bussesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bussesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.manageDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.троллейбусыBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bussesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -66,7 +68,7 @@ namespace Trolleybus_manager
             this.запросыToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(870, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(855, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -85,99 +87,12 @@ namespace Trolleybus_manager
             this.запросыToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.запросыToolStripMenuItem.Text = "Запросы";
             // 
-            // bussesDataGridView
-            // 
-            this.bussesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.bussesDataGridView.AutoGenerateColumns = false;
-            this.bussesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.bussesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.bussesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6});
-            this.bussesDataGridView.DataSource = this.bussesBindingSource;
-            this.bussesDataGridView.Location = new System.Drawing.Point(12, 27);
-            this.bussesDataGridView.Name = "bussesDataGridView";
-            this.bussesDataGridView.Size = new System.Drawing.Size(846, 355);
-            this.bussesDataGridView.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "НомерМаршрута";
-            this.dataGridViewTextBoxColumn1.HeaderText = "НомерМаршрута";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Состояние";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Состояние";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "ВремяОтправления";
-            this.dataGridViewTextBoxColumn3.HeaderText = "ВремяОтправления";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "НачалоДвижения";
-            this.dataGridViewTextBoxColumn4.HeaderText = "НачалоДвижения";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "КонецДвижения";
-            this.dataGridViewTextBoxColumn5.HeaderText = "КонецДвижения";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Протяженность";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Протяженность";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // bussesBindingSource
-            // 
-            this.bussesBindingSource.DataMember = "Busses";
-            this.bussesBindingSource.DataSource = this.manageDataSet;
-            // 
-            // manageDataSet
-            // 
-            this.manageDataSet.DataSetName = "manageDataSet";
-            this.manageDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // троллейбусыBindingSource
-            // 
-            this.троллейбусыBindingSource.DataMember = "Троллейбусы";
-            this.троллейбусыBindingSource.DataSource = this.manageDataSet;
-            // 
-            // троллейбусыTableAdapter
-            // 
-            this.троллейбусыTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.UpdateOrder = Trolleybus_manager.manageDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.МаршрутыTableAdapter = null;
-            this.tableAdapterManager.СправочникОстановокTableAdapter = null;
-            this.tableAdapterManager.ТроллейбусыTableAdapter = this.троллейбусыTableAdapter;
-            // 
-            // bussesTableAdapter
-            // 
-            this.bussesTableAdapter.ClearBeforeFill = true;
-            // 
             // AddTrolleybus
             // 
             this.AddTrolleybus.Name = "AddTrolleybus";
             this.AddTrolleybus.Size = new System.Drawing.Size(332, 22);
             this.AddTrolleybus.Text = "Добавить машину";
+            this.AddTrolleybus.Click += new System.EventHandler(this.AddTrolleybus_Click);
             // 
             // ChangeTrolleybus
             // 
@@ -221,11 +136,115 @@ namespace Trolleybus_manager
             this.ShowAll.Size = new System.Drawing.Size(332, 22);
             this.ShowAll.Text = "Показать все";
             // 
+            // bussesBindingSource
+            // 
+            this.bussesBindingSource.DataMember = "Busses";
+            this.bussesBindingSource.DataSource = this.manageDataSet;
+            // 
+            // manageDataSet
+            // 
+            this.manageDataSet.DataSetName = "manageDataSet";
+            this.manageDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // троллейбусыBindingSource
+            // 
+            this.троллейбусыBindingSource.DataMember = "Троллейбусы";
+            this.троллейбусыBindingSource.DataSource = this.manageDataSet;
+            // 
+            // троллейбусыTableAdapter
+            // 
+            this.троллейбусыTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.UpdateOrder = Trolleybus_manager.manageDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.МаршрутыTableAdapter = null;
+            this.tableAdapterManager.СправочникОстановок1TableAdapter = null;
+            this.tableAdapterManager.СправочникОстановок2TableAdapter = null;
+            this.tableAdapterManager.СправочникОстановокTableAdapter = null;
+            this.tableAdapterManager.ТроллейбусыTableAdapter = this.троллейбусыTableAdapter;
+            // 
+            // bussesTableAdapter
+            // 
+            this.bussesTableAdapter.ClearBeforeFill = true;
+            // 
+            // bussesDataGridView
+            // 
+            this.bussesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.bussesDataGridView.AutoGenerateColumns = false;
+            this.bussesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.bussesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.bussesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8});
+            this.bussesDataGridView.DataSource = this.bussesBindingSource;
+            this.bussesDataGridView.Location = new System.Drawing.Point(12, 27);
+            this.bussesDataGridView.Name = "bussesDataGridView";
+            this.bussesDataGridView.Size = new System.Drawing.Size(831, 355);
+            this.bussesDataGridView.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "НомерТроллейбуса";
+            this.dataGridViewTextBoxColumn1.HeaderText = "НомерТроллейбуса";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Состояние";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Состояние";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "НомерМаршрута";
+            this.dataGridViewTextBoxColumn3.HeaderText = "НомерМаршрута";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "ВремяОтправления";
+            this.dataGridViewTextBoxColumn4.HeaderText = "ВремяОтправления";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "НачалоДвижения";
+            this.dataGridViewTextBoxColumn5.HeaderText = "НачалоДвижения";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "КонецДвижения";
+            this.dataGridViewTextBoxColumn6.HeaderText = "КонецДвижения";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "ЧислоОстановок";
+            this.dataGridViewTextBoxColumn7.HeaderText = "ЧислоОстановок";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Протяженность";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Протяженность";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
             // Trolleybusses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(870, 394);
+            this.ClientSize = new System.Drawing.Size(855, 394);
             this.Controls.Add(this.bussesDataGridView);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -239,10 +258,10 @@ namespace Trolleybus_manager
             this.Load += new System.EventHandler(this.Trolleybusses_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bussesDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bussesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.manageDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.троллейбусыBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bussesDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,14 +276,6 @@ namespace Trolleybus_manager
         private manageDataSetTableAdapters.ТроллейбусыTableAdapter троллейбусыTableAdapter;
         private manageDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingSource bussesBindingSource;
-        private manageDataSetTableAdapters.BussesTableAdapter bussesTableAdapter;
-        private System.Windows.Forms.DataGridView bussesDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.ToolStripMenuItem AddTrolleybus;
         private System.Windows.Forms.ToolStripMenuItem ChangeTrolleybus;
         private System.Windows.Forms.ToolStripMenuItem DeteleTrolleybus;
@@ -273,5 +284,15 @@ namespace Trolleybus_manager
         private System.Windows.Forms.ToolStripMenuItem ShowBusByCare;
         private System.Windows.Forms.ToolStripMenuItem ShowBusByInPath;
         private System.Windows.Forms.ToolStripMenuItem ShowAll;
+        private manageDataSetTableAdapters.BussesTableAdapter bussesTableAdapter;
+        private System.Windows.Forms.DataGridView bussesDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
     }
 }

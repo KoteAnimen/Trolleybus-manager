@@ -4,5 +4,8 @@
 
     partial class manageDataSet
     {
+        partial class ТроллейбусыDataTable
+        {
+        }
     }
 }
