@@ -46,6 +46,26 @@ namespace Trolleybus_manager
             path.ShowDialog();
             маршрутыTableAdapter.Fill(this.manageDataSet.Маршруты);
         }
+
+        private void DeletePath_Click(object sender, EventArgs e)
+        {
+            Path.id = маршрутыDataGridView[0, маршрутыDataGridView.CurrentRow.Index].Value.ToString();            
+            DialogResult result = MessageBox.Show("Вы уверены, что хотите удалить маршрут?", "Удаление маршрута", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                
+                try
+                {
+                    маршрутыTableAdapter.DeletePath(Path.id);
+                }
+                catch
+                {
+                    MessageBox.Show("Не удалось удалить запись, так как она связана с другими таблицами", "Ошибка");
+                }
+
+            }
+            маршрутыTableAdapter.Fill(this.manageDataSet.Маршруты);
+        }
     }
 
     public static class Path
