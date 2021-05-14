@@ -36,6 +36,8 @@ namespace Trolleybus_manager
             // TODO: данная строка кода позволяет загрузить данные в таблицу "manageDataSet.Маршруты". При необходимости она может быть перемещена или удалена.
             this.маршрутыTableAdapter.Fill(this.manageDataSet.Маршруты);
             маршрутыBindingSource.AddNew();
+            началоДвиженияComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            конецДвиженияComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
         }
 

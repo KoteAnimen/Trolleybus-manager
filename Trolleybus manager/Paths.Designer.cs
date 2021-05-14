@@ -107,6 +107,7 @@ namespace Trolleybus_manager
             this.ChangePath.Name = "ChangePath";
             this.ChangePath.Size = new System.Drawing.Size(210, 22);
             this.ChangePath.Text = "Изменить маршрут";
+            this.ChangePath.Click += new System.EventHandler(this.ChangePath_Click);
             // 
             // DeletePath
             // 
@@ -175,6 +176,8 @@ namespace Trolleybus_manager
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.UpdateOrder = Trolleybus_manager.manageDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.МаршрутыTableAdapter = this.маршрутыTableAdapter;
+            this.tableAdapterManager.СправочникОстановок1TableAdapter = null;
+            this.tableAdapterManager.СправочникОстановок2TableAdapter = null;
             this.tableAdapterManager.СправочникОстановокTableAdapter = null;
             this.tableAdapterManager.ТроллейбусыTableAdapter = null;
             // 

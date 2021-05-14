@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangePath.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePath.Designer.cs">
+      <DependentUpon>ChangePath.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChangeTrolleybus.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,12 +63,6 @@
     </Compile>
     <Compile Include="AddNewTrolleybus.Designer.cs">
       <DependentUpon>AddNewTrolleybus.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ChangePath.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChangePath.Designer.cs">
-      <DependentUpon>ChangePath.cs</DependentUpon>
     </Compile>
     <Compile Include="AddPath.cs">
       <SubType>Form</SubType>
@@ -116,14 +116,14 @@
     <Compile Include="Trolleybusses.Designer.cs">
       <DependentUpon>Trolleybusses.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ChangePath.resx">
+      <DependentUpon>ChangePath.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChangeTrolleybus.resx">
       <DependentUpon>ChangeTrolleybus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddNewTrolleybus.resx">
       <DependentUpon>AddNewTrolleybus.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ChangePath.resx">
-      <DependentUpon>ChangePath.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddPath.resx">
       <DependentUpon>AddPath.cs</DependentUpon>

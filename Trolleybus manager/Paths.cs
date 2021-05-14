@@ -38,5 +38,18 @@ namespace Trolleybus_manager
             path.ShowDialog();
             маршрутыTableAdapter.Fill(this.manageDataSet.Маршруты);
         }
+
+        private void ChangePath_Click(object sender, EventArgs e)
+        {
+            Path.id = маршрутыDataGridView[0, маршрутыDataGridView.CurrentRow.Index].Value.ToString();
+            ChangePath path = new ChangePath();
+            path.ShowDialog();
+            маршрутыTableAdapter.Fill(this.manageDataSet.Маршруты);
+        }
+    }
+
+    public static class Path
+    {
+        public static string id;
     }
 }
