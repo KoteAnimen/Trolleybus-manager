@@ -99,6 +99,7 @@ namespace Trolleybus_manager
             this.ChangeTrolleybus.Name = "ChangeTrolleybus";
             this.ChangeTrolleybus.Size = new System.Drawing.Size(332, 22);
             this.ChangeTrolleybus.Text = "Изменить информацию о машине";
+            this.ChangeTrolleybus.Click += new System.EventHandler(this.ChangeTrolleybus_Click);
             // 
             // DeteleTrolleybus
             // 

@@ -40,5 +40,18 @@ namespace Trolleybus_manager
             bus.ShowDialog();
             this.bussesTableAdapter.Fill(manageDataSet.Busses);
         }
+
+        private void ChangeTrolleybus_Click(object sender, EventArgs e)
+        {
+            Trolleybus.id = bussesDataGridView[0, bussesDataGridView.CurrentRow.Index].Value.ToString();
+            ChangeTrolleybus bus = new ChangeTrolleybus();
+            bus.ShowDialog();
+            this.bussesTableAdapter.Fill(manageDataSet.Busses);
+        }
+    }
+
+    public static class Trolleybus
+    {
+        public static string id;
     }
 }
