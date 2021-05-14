@@ -48,6 +48,26 @@ namespace Trolleybus_manager
             bus.ShowDialog();
             this.bussesTableAdapter.Fill(manageDataSet.Busses);
         }
+
+        private void DeteleTrolleybus_Click(object sender, EventArgs e)
+        {
+            Trolleybus.id = bussesDataGridView[0, bussesDataGridView.CurrentRow.Index].Value.ToString();
+            DialogResult result = MessageBox.Show("Вы уверены, что хотите удалить остановку?", "Удаление остановки", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {                    
+                    троллейбусыTableAdapter.DeleteBus(Trolleybus.id);
+                    bussesDataGridView.Rows.RemoveAt(0);
+                }
+                catch
+                {
+                    MessageBox.Show("Не удалось удалить запись, так как она связана с другими таблицами", "Ошибка");
+                }
+
+            }
+            this.bussesTableAdapter.Fill(manageDataSet.Busses);
+        }
     }
 
     public static class Trolleybus

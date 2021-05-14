@@ -40,12 +40,6 @@ namespace Trolleybus_manager
             this.ShowBusByCare = new System.Windows.Forms.ToolStripMenuItem();
             this.ShowBusByInPath = new System.Windows.Forms.ToolStripMenuItem();
             this.ShowAll = new System.Windows.Forms.ToolStripMenuItem();
-            this.bussesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.manageDataSet = new Trolleybus_manager.manageDataSet();
-            this.троллейбусыBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.троллейбусыTableAdapter = new Trolleybus_manager.manageDataSetTableAdapters.ТроллейбусыTableAdapter();
-            this.tableAdapterManager = new Trolleybus_manager.manageDataSetTableAdapters.TableAdapterManager();
-            this.bussesTableAdapter = new Trolleybus_manager.manageDataSetTableAdapters.BussesTableAdapter();
             this.bussesDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,11 +49,17 @@ namespace Trolleybus_manager
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bussesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.manageDataSet = new Trolleybus_manager.manageDataSet();
+            this.троллейбусыBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.троллейбусыTableAdapter = new Trolleybus_manager.manageDataSetTableAdapters.ТроллейбусыTableAdapter();
+            this.tableAdapterManager = new Trolleybus_manager.manageDataSetTableAdapters.TableAdapterManager();
+            this.bussesTableAdapter = new Trolleybus_manager.manageDataSetTableAdapters.BussesTableAdapter();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bussesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bussesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.manageDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.троллейбусыBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bussesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -106,6 +106,7 @@ namespace Trolleybus_manager
             this.DeteleTrolleybus.Name = "DeteleTrolleybus";
             this.DeteleTrolleybus.Size = new System.Drawing.Size(332, 22);
             this.DeteleTrolleybus.Text = "Удалить машину";
+            this.DeteleTrolleybus.Click += new System.EventHandler(this.DeteleTrolleybus_Click);
             // 
             // ShowBusByPath
             // 
@@ -136,39 +137,6 @@ namespace Trolleybus_manager
             this.ShowAll.Name = "ShowAll";
             this.ShowAll.Size = new System.Drawing.Size(332, 22);
             this.ShowAll.Text = "Показать все";
-            // 
-            // bussesBindingSource
-            // 
-            this.bussesBindingSource.DataMember = "Busses";
-            this.bussesBindingSource.DataSource = this.manageDataSet;
-            // 
-            // manageDataSet
-            // 
-            this.manageDataSet.DataSetName = "manageDataSet";
-            this.manageDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // троллейбусыBindingSource
-            // 
-            this.троллейбусыBindingSource.DataMember = "Троллейбусы";
-            this.троллейбусыBindingSource.DataSource = this.manageDataSet;
-            // 
-            // троллейбусыTableAdapter
-            // 
-            this.троллейбусыTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.UpdateOrder = Trolleybus_manager.manageDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.МаршрутыTableAdapter = null;
-            this.tableAdapterManager.СправочникОстановок1TableAdapter = null;
-            this.tableAdapterManager.СправочникОстановок2TableAdapter = null;
-            this.tableAdapterManager.СправочникОстановокTableAdapter = null;
-            this.tableAdapterManager.ТроллейбусыTableAdapter = this.троллейбусыTableAdapter;
-            // 
-            // bussesTableAdapter
-            // 
-            this.bussesTableAdapter.ClearBeforeFill = true;
             // 
             // bussesDataGridView
             // 
@@ -241,6 +209,39 @@ namespace Trolleybus_manager
             this.dataGridViewTextBoxColumn8.HeaderText = "Протяженность";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
+            // bussesBindingSource
+            // 
+            this.bussesBindingSource.DataMember = "Busses";
+            this.bussesBindingSource.DataSource = this.manageDataSet;
+            // 
+            // manageDataSet
+            // 
+            this.manageDataSet.DataSetName = "manageDataSet";
+            this.manageDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // троллейбусыBindingSource
+            // 
+            this.троллейбусыBindingSource.DataMember = "Троллейбусы";
+            this.троллейбусыBindingSource.DataSource = this.manageDataSet;
+            // 
+            // троллейбусыTableAdapter
+            // 
+            this.троллейбусыTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.UpdateOrder = Trolleybus_manager.manageDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.МаршрутыTableAdapter = null;
+            this.tableAdapterManager.СправочникОстановок1TableAdapter = null;
+            this.tableAdapterManager.СправочникОстановок2TableAdapter = null;
+            this.tableAdapterManager.СправочникОстановокTableAdapter = null;
+            this.tableAdapterManager.ТроллейбусыTableAdapter = this.троллейбусыTableAdapter;
+            // 
+            // bussesTableAdapter
+            // 
+            this.bussesTableAdapter.ClearBeforeFill = true;
+            // 
             // Trolleybusses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -259,10 +260,10 @@ namespace Trolleybus_manager
             this.Load += new System.EventHandler(this.Trolleybusses_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bussesDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bussesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.manageDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.троллейбусыBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bussesDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
