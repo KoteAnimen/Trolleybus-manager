@@ -48,10 +48,15 @@ namespace Trolleybus_manager
             this.началоДвиженияComboBox = new System.Windows.Forms.ComboBox();
             this.справочникОстановокBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.конецДвиженияComboBox = new System.Windows.Forms.ComboBox();
+            this.справочникОстановок1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.числоМашинNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.числоОстановокNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.Add = new System.Windows.Forms.Button();
             this.Cancel = new System.Windows.Forms.Button();
+            this.справочникОстановок1TableAdapter = new Trolleybus_manager.manageDataSetTableAdapters.СправочникОстановок1TableAdapter();
+            this.справочникОстановок1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.справочникОстановок2BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.справочникОстановок2TableAdapter = new Trolleybus_manager.manageDataSetTableAdapters.СправочникОстановок2TableAdapter();
             номерМаршрутаLabel = new System.Windows.Forms.Label();
             протяженностьLabel = new System.Windows.Forms.Label();
             времяLabel = new System.Windows.Forms.Label();
@@ -63,8 +68,11 @@ namespace Trolleybus_manager
             ((System.ComponentModel.ISupportInitialize)(this.маршрутыBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.протяженностьNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.справочникОстановокBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.справочникОстановок1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.числоМашинNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.числоОстановокNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.справочникОстановок1BindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.справочникОстановок2BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // номерМаршрутаLabel
@@ -149,6 +157,8 @@ namespace Trolleybus_manager
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.UpdateOrder = Trolleybus_manager.manageDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.МаршрутыTableAdapter = this.маршрутыTableAdapter;
+            this.tableAdapterManager.СправочникОстановок1TableAdapter = null;
+            this.tableAdapterManager.СправочникОстановок2TableAdapter = null;
             this.tableAdapterManager.СправочникОстановокTableAdapter = this.справочникОстановокTableAdapter;
             this.tableAdapterManager.ТроллейбусыTableAdapter = null;
             // 
@@ -174,7 +184,7 @@ namespace Trolleybus_manager
             // 
             // времяDateTimePicker
             // 
-            this.времяDateTimePicker.CustomFormat = "00:00";
+            this.времяDateTimePicker.CustomFormat = "HH:mm";
             this.времяDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.маршрутыBindingSource, "Время", true));
             this.времяDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.времяDateTimePicker.Location = new System.Drawing.Point(206, 108);
@@ -186,7 +196,7 @@ namespace Trolleybus_manager
             // началоДвиженияComboBox
             // 
             this.началоДвиженияComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.маршрутыBindingSource, "НачалоДвижения", true));
-            this.началоДвиженияComboBox.DataSource = this.справочникОстановокBindingSource;
+            this.началоДвиженияComboBox.DataSource = this.справочникОстановок1BindingSource1;
             this.началоДвиженияComboBox.DisplayMember = "НазваниеОстановки";
             this.началоДвиженияComboBox.FormattingEnabled = true;
             this.началоДвиженияComboBox.Location = new System.Drawing.Point(206, 178);
@@ -202,13 +212,18 @@ namespace Trolleybus_manager
             // конецДвиженияComboBox
             // 
             this.конецДвиженияComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.маршрутыBindingSource, "КонецДвижения", true));
-            this.конецДвиженияComboBox.DataSource = this.справочникОстановокBindingSource;
+            this.конецДвиженияComboBox.DataSource = this.справочникОстановок2BindingSource;
             this.конецДвиженияComboBox.DisplayMember = "НазваниеОстановки";
             this.конецДвиженияComboBox.FormattingEnabled = true;
             this.конецДвиженияComboBox.Location = new System.Drawing.Point(206, 216);
             this.конецДвиженияComboBox.Name = "конецДвиженияComboBox";
             this.конецДвиженияComboBox.Size = new System.Drawing.Size(278, 32);
             this.конецДвиженияComboBox.TabIndex = 11;
+            // 
+            // справочникОстановок1BindingSource
+            // 
+            this.справочникОстановок1BindingSource.DataMember = "СправочникОстановок1";
+            this.справочникОстановок1BindingSource.DataSource = this.manageDataSet;
             // 
             // числоМашинNumericUpDown
             // 
@@ -246,11 +261,29 @@ namespace Trolleybus_manager
             this.Cancel.UseVisualStyleBackColor = true;
             this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
+            // справочникОстановок1TableAdapter
+            // 
+            this.справочникОстановок1TableAdapter.ClearBeforeFill = true;
+            // 
+            // справочникОстановок1BindingSource1
+            // 
+            this.справочникОстановок1BindingSource1.DataMember = "СправочникОстановок1";
+            this.справочникОстановок1BindingSource1.DataSource = this.manageDataSet;
+            // 
+            // справочникОстановок2BindingSource
+            // 
+            this.справочникОстановок2BindingSource.DataMember = "СправочникОстановок2";
+            this.справочникОстановок2BindingSource.DataSource = this.manageDataSet;
+            // 
+            // справочникОстановок2TableAdapter
+            // 
+            this.справочникОстановок2TableAdapter.ClearBeforeFill = true;
+            // 
             // AddPath
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(498, 355);
+            this.ClientSize = new System.Drawing.Size(504, 362);
             this.ControlBox = false;
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.Add);
@@ -280,8 +313,11 @@ namespace Trolleybus_manager
             ((System.ComponentModel.ISupportInitialize)(this.маршрутыBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.протяженностьNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.справочникОстановокBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.справочникОстановок1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.числоМашинNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.числоОстановокNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.справочникОстановок1BindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.справочникОстановок2BindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,5 +340,10 @@ namespace Trolleybus_manager
         private System.Windows.Forms.Button Cancel;
         private manageDataSetTableAdapters.СправочникОстановокTableAdapter справочникОстановокTableAdapter;
         private System.Windows.Forms.BindingSource справочникОстановокBindingSource;
+        private System.Windows.Forms.BindingSource справочникОстановок1BindingSource;
+        private manageDataSetTableAdapters.СправочникОстановок1TableAdapter справочникОстановок1TableAdapter;
+        private System.Windows.Forms.BindingSource справочникОстановок1BindingSource1;
+        private System.Windows.Forms.BindingSource справочникОстановок2BindingSource;
+        private manageDataSetTableAdapters.СправочникОстановок2TableAdapter справочникОстановок2TableAdapter;
     }
 }

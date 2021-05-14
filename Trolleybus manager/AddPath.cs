@@ -27,10 +27,15 @@ namespace Trolleybus_manager
 
         private void AddPath_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "manageDataSet.СправочникОстановок2". При необходимости она может быть перемещена или удалена.
+            this.справочникОстановок2TableAdapter.Fill(this.manageDataSet.СправочникОстановок2);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "manageDataSet.СправочникОстановок1". При необходимости она может быть перемещена или удалена.
+            this.справочникОстановок1TableAdapter.Fill(this.manageDataSet.СправочникОстановок1);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "manageDataSet.СправочникОстановок". При необходимости она может быть перемещена или удалена.
             this.справочникОстановокTableAdapter.Fill(this.manageDataSet.СправочникОстановок);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "manageDataSet.Маршруты". При необходимости она может быть перемещена или удалена.
             this.маршрутыTableAdapter.Fill(this.manageDataSet.Маршруты);
+            маршрутыBindingSource.AddNew();
 
         }
 
