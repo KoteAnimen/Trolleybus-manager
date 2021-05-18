@@ -82,6 +82,12 @@
     <Compile Include="AddState.Designer.cs">
       <DependentUpon>AddState.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChoiceBus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChoiceBus.Designer.cs">
+      <DependentUpon>ChoiceBus.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListStates.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddState.resx">
       <DependentUpon>AddState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChoiceBus.resx">
+      <DependentUpon>ChoiceBus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListStates.resx">
       <DependentUpon>ListStates.cs</DependentUpon>

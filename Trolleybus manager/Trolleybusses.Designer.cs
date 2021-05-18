@@ -113,30 +113,35 @@ namespace Trolleybus_manager
             this.ShowBusByPath.Name = "ShowBusByPath";
             this.ShowBusByPath.Size = new System.Drawing.Size(332, 22);
             this.ShowBusByPath.Text = "Просмотр всех машин выбранного маршрута";
+            this.ShowBusByPath.Click += new System.EventHandler(this.ShowBusByPath_Click);
             // 
             // ShowBusByFix
             // 
             this.ShowBusByFix.Name = "ShowBusByFix";
             this.ShowBusByFix.Size = new System.Drawing.Size(332, 22);
             this.ShowBusByFix.Text = "Показать машины в ремонте";
+            this.ShowBusByFix.Click += new System.EventHandler(this.ShowBusByFix_Click);
             // 
             // ShowBusByCare
             // 
             this.ShowBusByCare.Name = "ShowBusByCare";
             this.ShowBusByCare.Size = new System.Drawing.Size(332, 22);
             this.ShowBusByCare.Text = "Показать обслуживаемые машины";
+            this.ShowBusByCare.Click += new System.EventHandler(this.ShowBusByCare_Click);
             // 
             // ShowBusByInPath
             // 
             this.ShowBusByInPath.Name = "ShowBusByInPath";
             this.ShowBusByInPath.Size = new System.Drawing.Size(332, 22);
             this.ShowBusByInPath.Text = "Показать машины в пути";
+            this.ShowBusByInPath.Click += new System.EventHandler(this.ShowBusByInPath_Click);
             // 
             // ShowAll
             // 
             this.ShowAll.Name = "ShowAll";
             this.ShowAll.Size = new System.Drawing.Size(332, 22);
             this.ShowAll.Text = "Показать все";
+            this.ShowAll.Click += new System.EventHandler(this.ShowAll_Click);
             // 
             // bussesDataGridView
             // 

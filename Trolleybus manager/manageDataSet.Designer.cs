@@ -5606,7 +5606,7 @@ namespace Trolleybus_manager.manageDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[5];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        Троллейбусы.НомерТроллейбуса, Троллейбусы.Состояние, Маршруты.НомерМаршрута, Маршруты.Протяженность, Маршруты.НачалоДвижения, Маршруты.КонецДвижения, Маршруты.ЧислоОстановок, 
@@ -5614,6 +5614,39 @@ namespace Trolleybus_manager.manageDataSetTableAdapters {
 FROM            (Троллейбусы LEFT OUTER JOIN
                          Маршруты ON Троллейбусы.НомерМаршрута = Маршруты.НомерМаршрута)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT        Троллейбусы.НомерТроллейбуса, Троллейбусы.Состояние, Маршруты.НомерМаршрута, Маршруты.Протяженность, Маршруты.НачалоДвижения, Маршруты.КонецДвижения, Маршруты.ЧислоОстановок, 
+                         Троллейбусы.ВремяОтправления
+FROM            (Троллейбусы LEFT OUTER JOIN
+                         Маршруты ON Троллейбусы.НомерМаршрута = Маршруты.НомерМаршрута)
+WHERE Троллейбусы.Состояние = 'В пути'";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT        Троллейбусы.НомерТроллейбуса, Троллейбусы.Состояние, Маршруты.НомерМаршрута, Маршруты.Протяженность, Маршруты.НачалоДвижения, Маршруты.КонецДвижения, Маршруты.ЧислоОстановок, 
+                         Троллейбусы.ВремяОтправления
+FROM            (Троллейбусы LEFT OUTER JOIN
+                         Маршруты ON Троллейбусы.НомерМаршрута = Маршруты.НомерМаршрута)
+WHERE Маршруты.НомерМаршрута = ?";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("НомерМаршрута", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "НомерМаршрута", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[3] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"SELECT        Троллейбусы.НомерТроллейбуса, Троллейбусы.Состояние, Маршруты.НомерМаршрута, Маршруты.Протяженность, Маршруты.НачалоДвижения, Маршруты.КонецДвижения, Маршруты.ЧислоОстановок, 
+                         Троллейбусы.ВремяОтправления
+FROM            (Троллейбусы LEFT OUTER JOIN
+                         Маршруты ON Троллейбусы.НомерМаршрута = Маршруты.НомерМаршрута)
+WHERE Троллейбусы.Состояние = 'В ремонте'";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = @"SELECT        Троллейбусы.НомерТроллейбуса, Троллейбусы.Состояние, Маршруты.НомерМаршрута, Маршруты.Протяженность, Маршруты.НачалоДвижения, Маршруты.КонецДвижения, Маршруты.ЧислоОстановок, 
+                         Троллейбусы.ВремяОтправления
+FROM            (Троллейбусы LEFT OUTER JOIN
+                         Маршруты ON Троллейбусы.НомерМаршрута = Маршруты.НомерМаршрута)
+WHERE Троллейбусы.Состояние = 'Обслуживается'";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5638,6 +5671,64 @@ FROM            (Троллейбусы LEFT OUTER JOIN
             manageDataSet.BussesDataTable dataTable = new manageDataSet.BussesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByGo(manageDataSet.BussesDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByNumberPath(manageDataSet.BussesDataTable dataTable, string НомерМаршрута) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((НомерМаршрута == null)) {
+                throw new global::System.ArgumentNullException("НомерМаршрута");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(НомерМаршрута));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByRepear(manageDataSet.BussesDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByService(manageDataSet.BussesDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
         }
     }
     

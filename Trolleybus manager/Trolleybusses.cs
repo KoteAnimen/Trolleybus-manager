@@ -68,10 +68,39 @@ namespace Trolleybus_manager
             }
             this.bussesTableAdapter.Fill(manageDataSet.Busses);
         }
+
+        private void ShowBusByPath_Click(object sender, EventArgs e)
+        {
+            Trolleybus.numberPath = "";
+            ChoiceBus bus = new ChoiceBus();
+            bus.ShowDialog();
+            bussesTableAdapter.FillByNumberPath(manageDataSet.Busses, Trolleybus.numberPath);
+        }
+
+        private void ShowBusByFix_Click(object sender, EventArgs e)
+        {
+            bussesTableAdapter.FillByRepear(manageDataSet.Busses);
+        }
+
+        private void ShowBusByCare_Click(object sender, EventArgs e)
+        {
+            bussesTableAdapter.FillByService(manageDataSet.Busses);
+        }
+
+        private void ShowBusByInPath_Click(object sender, EventArgs e)
+        {
+            bussesTableAdapter.FillByGo(manageDataSet.Busses);
+        }
+
+        private void ShowAll_Click(object sender, EventArgs e)
+        {
+            bussesTableAdapter.Fill(manageDataSet.Busses);
+        }
     }
 
     public static class Trolleybus
     {
         public static string id;
+        public static string numberPath;
     }
 }

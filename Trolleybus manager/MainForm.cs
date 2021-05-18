@@ -39,5 +39,10 @@ namespace Trolleybus_manager
             Trolleybusses bus = new Trolleybusses();
             bus.ShowDialog();
         }
+
+        private void AboutUs_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Программа создана студентом группы ИСП-31 Филяком Ильёй." + "\n" + "Программа создана для управления БД 'Управление троллейбусами'.", "О программе");
+        }
     }
 }
